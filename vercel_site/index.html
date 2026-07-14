@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
   <title>V14 Trading Signals</title>
   <style>
     *, *::before, *::after {
@@ -14,6 +15,7 @@
     html, body {
       width: 100%;
       height: 100%;
+      height: 100dvh;
       overflow: hidden;
       background: #0b1220;
       color: #e5e7eb;
@@ -31,6 +33,8 @@
       background: #0b1220;
       z-index: 10;
       transition: opacity 0.35s ease;
+      padding: 1rem;
+      text-align: center;
     }
 
     #loader.hidden {
@@ -58,7 +62,7 @@
     }
 
     #loader h1 {
-      font-size: 1.25rem;
+      font-size: clamp(1.1rem, 4vw, 1.35rem);
       font-weight: 800;
       color: #f9fafb;
     }
@@ -68,6 +72,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      height: 100dvh;
       border: 0;
       display: block;
       background: #0b1220;
@@ -78,13 +83,13 @@
   <div id="loader" aria-live="polite">
     <h1>V14 Trading Signals</h1>
     <div class="spinner" role="status" aria-label="Cargando"></div>
-    <p>Cargando señales V14…</p>
+    <p>Cargando V14 Trading Signals…</p>
   </div>
 
   <iframe
     id="app-frame"
     title="V14 Trading Signals"
-    src="STREAMLIT_APP_URL/?embed=true"
+    src="PEGA_AQUI_MI_URL_DE_STREAMLIT/?embed=true"
     allow="clipboard-read; clipboard-write"
     loading="eager"
   ></iframe>
