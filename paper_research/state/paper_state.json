@@ -1,0 +1,12 @@
+{
+  "version": "v17_7",
+  "approved_for_real_money": false,
+  "paper_trading_start": "2026-07-10",
+  "closure_validated": false,
+  "imported_snapshot_ids": [],
+  "last_equity_date": null,
+  "last_signal_date": null,
+  "first_execution_date": {},
+  "last_updated": null,
+  "n_observations": 0
+}

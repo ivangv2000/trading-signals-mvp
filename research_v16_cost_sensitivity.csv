@@ -1,0 +1,3 @@
+cost_slippage,total_return,CAGR,sharpe,sortino,max_drawdown,calmar,annual_volatility,win_years_vs_spy,win_years_vs_qqq,win_years_vs_6040,strategy,turnover,total_cost,num_rebalances,exposure,concentration_risk,top_contributor_pct,recent_years_score,recent_years_label
+0.0005,598.99,18.4,1.369,1.823,-18.46,0.997,12.98,0.6666666666666666,0.3333333333333333,0.8333333333333334,V16_F_V14_AGGRESSIVE_CAPPED,0.1485,1448.66,601,1,MEDIUM,30.76,-12,NEGATIVE
+0.001,568.47,17.94,1.34,1.783,-18.49,0.97,12.98,0.5,0.3333333333333333,0.8333333333333334,V16_F_V14_AGGRESSIVE_CAPPED,0.1485,2813.1,601,1,MEDIUM,30.76,-20,NEGATIVE

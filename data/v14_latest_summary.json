@@ -1,0 +1,13 @@
+{
+  "strategy": "V14 R1 Return Engine",
+  "signal_date": "2026-07-14",
+  "next_rebalance": "Viernes después del cierre",
+  "global_action": "HOLD",
+  "risk_level": "risk_on_momentum",
+  "capital_reference": 100.0,
+  "number_of_positions": 4,
+  "approved_for_real_money": false,
+  "source": "v14_r1_return_engine",
+  "created_at": "2026-07-14T14:22:59.843537Z",
+  "snapshot_hash": "44d9e9d9a50c612324316265b15f8ef99103192d73d6ff88655da9b6b9734325"
+}

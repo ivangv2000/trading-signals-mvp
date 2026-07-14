@@ -1,0 +1,29 @@
+{
+  "version": "v17_5_1",
+  "created_at": "2026-07-12T14:30:00Z",
+  "description": "Integrity hotfix: real equal-weight benchmark, live XGB inference, wealth-based PnL",
+  "inherits_from": "v17_5_frozen_audit_config",
+  "fixes": [
+    "B1_EQUAL_WEIGHT_ALL_ASOF uses full as-of universe not top 25",
+    "B2_CAP_MATCHED_RANDOM separate capped random benchmark",
+    "train_final_xgb_for_live for current signals not historical OOS targets",
+    "calculate_realized_pnl_contribution wealth reconciliation",
+    "null test vs B1_EQUAL_WEIGHT_ALL_ASOF"
+  ],
+  "primary_benchmark": "B1_EQUAL_WEIGHT_ALL_ASOF",
+  "live_strategy_source": "S5_XGBRANKER_LIVE",
+  "v17_5_reference": {
+    "FINAL_STATUS": "FAILED_STATISTICAL_VALIDATION",
+    "champion": "S5_XGBRANKER",
+    "CAGR_pct": 25.90,
+    "excess_CAGR_vs_equal_weight": 10.98,
+    "information_ratio": 0.663,
+    "max_drawdown_pct": -52.02,
+    "null_corrected_p": 0.001996,
+    "preregistered_pbo": 0.25,
+    "preregistered_dsr": 0.6809,
+    "gates_pass": 17,
+    "gates_total": 20
+  },
+  "approved_for_real_money": false
+}

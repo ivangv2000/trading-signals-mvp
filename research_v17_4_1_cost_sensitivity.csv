@@ -1,0 +1,4 @@
+strategy,cost_multiplier,total_return_pct,CAGR_pct,sharpe,max_drawdown_pct,annual_vol_pct,years,metric_consistency_error,METRIC_STATUS,n_periods
+S8_SECTOR_NEUTRAL_MOMENTUM,0.5,1285.42,28.47,1.333,-33.5,20.42,10.49,0.0,PASS,2637
+S8_SECTOR_NEUTRAL_MOMENTUM,1.0,1235.35,28.02,1.316,-33.52,20.42,10.49,0.0,PASS,2637
+S8_SECTOR_NEUTRAL_MOMENTUM,2.0,1140.53,27.13,1.281,-33.56,20.42,10.49,0.0,PASS,2637

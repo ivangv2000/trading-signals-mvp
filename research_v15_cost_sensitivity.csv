@@ -1,0 +1,3 @@
+cost_slippage,total_return,CAGR,sharpe,sortino,max_drawdown,calmar,annual_volatility,win_years_vs_spy,win_years_vs_qqq,win_years_vs_6040,strategy,turnover,total_cost,num_rebalances,exposure
+0.0005,742.06,20.33,1.291,1.741,-28.42,0.715,15.28,0.75,0.4166666666666667,0.8333333333333334,M7_V6_V14_ADAPTIVE,0.1732,2014.99,602,0.827
+0.001,699.34,19.78,1.261,1.701,-28.84,0.686,15.28,0.75,0.4166666666666667,0.75,M7_V6_V14_ADAPTIVE,0.1732,3893.56,602,0.827

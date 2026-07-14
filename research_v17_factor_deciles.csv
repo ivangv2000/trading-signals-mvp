@@ -1,0 +1,13 @@
+factor,top_quintile_ann,bottom_quintile_ann,long_short_spread_ann,top_vs_equal_weight_ann
+rank_mom_60,306.81,-100.52,407.32,228.54
+rank_mom_120,248.33,-48.77,297.1,170.02
+rank_low_vol,150.64,38.08,112.56,72.37
+rank_trend,145.27,-38.53,183.8,67.09
+trend_stack,145.27,-38.53,183.8,67.09
+price_volume_breakout,127.6,78.38,49.22,49.42
+near_52w_high_score,123.83,-1.39,125.22,45.66
+rank_mom_252_skip_20,122.2,72.41,49.79,43.87
+abnormal_volume,65.11,109.9,-44.79,-13.07
+rank_volume_attention,65.11,109.9,-44.79,-13.07
+earnings_proxy_gap,60.44,117.34,-56.91,-17.74
+reversal_1w,-79.06,279.68,-358.74,-157.23

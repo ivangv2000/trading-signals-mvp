@@ -1,0 +1,2 @@
+start_date,strategy,total_return,CAGR,sharpe,sortino,max_drawdown,calmar,annual_volatility,win_years_vs_spy,win_years_vs_qqq,win_years_vs_6040,turnover,total_cost,num_rebalances,exposure
+2010-01-01,M7_V6_V14_ADAPTIVE,436.88,10.72,0.96,1.062,-28.3,0.379,11.28,0.35294117647058826,0.23529411764705882,0.5882352941176471,0.1468,4505.67,602,0.853

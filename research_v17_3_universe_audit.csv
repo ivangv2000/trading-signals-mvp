@@ -1,0 +1,2 @@
+mode,n_downloaded,n_valid_assets,n_valid_stocks,n_valid_etfs,n_sectors,top_k,median_history_days,survivorship_warning
+QUICK,39,39,16,23,5,4,4153,El universo usa constituyentes actuales y mantiene survivorship bias. No es point-in-time.

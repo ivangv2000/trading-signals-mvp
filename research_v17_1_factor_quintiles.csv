@@ -1,0 +1,11 @@
+factor,top_quintile_ann_pct,cagr_from_equity_pct,n_periods,metric_bug,period_sharpe
+rank_mom_252_skip_20,52.59,52.59,132,False,1.413
+rank_mom_120,51.79,51.79,139,False,1.485
+rank_mom_60,45.57,45.57,141,False,1.465
+reversal_1w,29.89,29.89,144,False,1.116
+rank_trend,29.17,29.17,144,False,1.311
+above_sma200,27.75,27.75,144,False,1.306
+near_52w_high_score,23.79,23.79,144,False,1.158
+price_volume_breakout,18.58,18.58,144,False,0.981
+abnormal_volume,17.28,17.28,144,False,0.825
+low_vol_score,16.61,16.61,141,False,0.972

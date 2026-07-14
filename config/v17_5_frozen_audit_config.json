@@ -1,0 +1,88 @@
+{
+  "version": "v17_5",
+  "created_at": "2026-07-12T12:00:00Z",
+  "description": "Frozen audit config — constraint caps, as-of universe, DSR audit. No new factors or ML tuning.",
+  "inherits_from": "v17_4_preregistered_experiment",
+  "preregistered_hash": "b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd",
+  "frozen_parameters": {
+    "START_DATE": "2010-01-01",
+    "TRANSACTION_COST": 0.001,
+    "SLIPPAGE": 0.001,
+    "FORWARD_HORIZON": 20,
+    "PURGE_DAYS": 20,
+    "EMBARGO_DAYS": 20,
+    "TOP_K_FULL": 25,
+    "BUY_RANK": 25,
+    "HOLD_UNTIL_RANK": 40,
+    "MAX_STOCK_WEIGHT": 0.05,
+    "MAX_SECTOR_WEIGHT": 0.25,
+    "RANDOM_SEED": 42,
+    "RESEARCH_START": "2016-01-01",
+    "RESEARCH_END": "2023-12-31",
+    "REUSED_TEST_START": "2024-01-01",
+    "PAPER_TRADING_START": "2026-07-10",
+    "WF_START_YEAR": 2016,
+    "N_NULL_PORTFOLIO": 500,
+    "N_TRIALS_ACCUMULATED": 261,
+    "N_PREREGISTERED_STRATEGIES": 8
+  },
+  "strategies": [
+    "S1_MOMENTUM_12_1",
+    "S2_MOMENTUM_TREND",
+    "S3_LOW_VOL_MOMENTUM",
+    "S4_CORRECTED_COMPOSITE",
+    "S5_XGBRANKER",
+    "S6_ENSEMBLE_COMPOSITE_RANKER",
+    "S7_SECTOR_NEUTRAL_COMPOSITE",
+    "S8_SECTOR_NEUTRAL_MOMENTUM"
+  ],
+  "universe_modes": {
+    "CURRENT_CONSTITUENTS_ASOF_LIQUIDITY": {
+      "description": "Current S&P 500 list, liquidity ranked as-of each rebalance date",
+      "survivorship_bias": true
+    },
+    "POINT_IN_TIME_MEMBERSHIP": {
+      "description": "Historical membership file if available",
+      "status_default": "NOT_TESTED"
+    }
+  },
+  "POINT_IN_TIME_MEMBERSHIP": false,
+  "survivorship_warning": "Current constituent source still contains survivorship bias.",
+  "risk_gates": {
+    "max_drawdown_pct": -35,
+    "max_top_ticker_pnl_pct": 15,
+    "max_top_sector_pnl_pct": 35,
+    "max_sector_weight": 0.25,
+    "max_stock_weight": 0.05,
+    "preregistered_pbo_threshold": 0.5,
+    "preregistered_dsr_threshold": 0.95,
+    "null_p_threshold": 0.05,
+    "min_information_ratio": 0.3,
+    "min_years_beating_ew": 0.55,
+    "min_years_beating_spy": 0.55
+  },
+  "v17_4_1_full_250_reference": {
+    "FINAL_STATUS": "FAILED_FULL_GENERALIZATION",
+    "champion": "S5_XGBRANKER",
+    "n_valid_stocks": 246,
+    "n_sectors": 11,
+    "research_CAGR_pct": 36.83,
+    "excess_CAGR_vs_equal_weight": 16.76,
+    "information_ratio": 0.942,
+    "pct_years_beating_equal_weight": 75.0,
+    "pct_years_beating_SPY": 87.5,
+    "null_corrected_p": 0.001996,
+    "ranker_oos_ic": 0.0442,
+    "preregistered_pbo": 0.375,
+    "preregistered_dsr": 0.0399,
+    "max_stock_weight_observed_pct": 7.0175,
+    "max_sector_weight_observed_pct": 43.86,
+    "max_drawdown_pct": -53.97,
+    "top_sector_pnl_pct": 53.86
+  },
+  "cache_reuse": {
+    "download_dir": "cache/v17_4_1_full_250/downloads",
+    "checkpoint_dir": "cache/v17_4_1_full_250"
+  },
+  "approved_for_real_money": false
+}

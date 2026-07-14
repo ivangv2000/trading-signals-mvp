@@ -1,0 +1,7 @@
+ticker,signal,target_weight,previous_weight,change,engine_source,regime,stress_level,confidence,reason,entry_plan,exit_plan,next_review,cash_account_executable
+GLD,HOLD,0.1462,0.1398,0.0063,defensive,risk_on_strong,low_stress,100.0,defensive | risk_on_strong,-,mantener hasta viernes,proximo viernes,True
+IEF,HOLD,0.1462,0.1398,0.0063,defensive,risk_on_strong,low_stress,100.0,defensive | risk_on_strong,-,mantener hasta viernes,proximo viernes,True
+MTUM,HOLD,0.1872,0.1935,-0.0063,benchmark_core,risk_on_strong,low_stress,100.0,benchmark_core | risk_on_strong,-,mantener hasta viernes,proximo viernes,True
+QQQ,HOLD,0.1872,0.1935,-0.0063,benchmark_core,risk_on_strong,low_stress,100.0,benchmark_core | risk_on_strong,-,mantener hasta viernes,proximo viernes,True
+SHY,HOLD,0.1462,0.1398,0.0063,defensive,risk_on_strong,low_stress,100.0,defensive | risk_on_strong,-,mantener hasta viernes,proximo viernes,True
+XLK,HOLD,0.1872,0.1935,-0.0063,benchmark_core,risk_on_strong,low_stress,100.0,benchmark_core | risk_on_strong,-,mantener hasta viernes,proximo viernes,True

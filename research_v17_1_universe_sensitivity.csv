@@ -1,0 +1,4 @@
+test_type,param,CAGR,sharpe,max_drawdown,n_weeks
+universe,all_stocks,31.05,1.561,-23.05,576
+universe,top150_liq,31.05,1.561,-23.05,576
+universe,ex_mega_tech,23.48,1.302,-20.02,576

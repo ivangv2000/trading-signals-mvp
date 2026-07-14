@@ -1,0 +1,2 @@
+start_date,strategy,total_return,CAGR,sharpe,sortino,max_drawdown,calmar,annual_volatility,win_years_vs_spy,win_years_vs_qqq,win_years_vs_6040,turnover,total_cost,num_rebalances,exposure
+2010-01-01,R1_RETURN_ENGINE,437.02,15.72,1.023,1.386,-23.88,0.658,15.48,0.5,0.4166666666666667,0.9166666666666666,0.2458,6840.42,602,0.754

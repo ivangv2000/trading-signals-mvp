@@ -1,0 +1,20 @@
+{
+  "version": "v17_3",
+  "mode": "QUICK",
+  "final_status": "PASSED_QUICK_READY_FOR_FULL",
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false,
+  "quick_gates": {
+    "Q1_temporal_contract": "True",
+    "Q2_metric_consistency": true,
+    "Q3_weights_sum_1": true,
+    "Q4_no_leverage": true,
+    "Q5_null_permutations": true,
+    "Q6_oos_predictions_only": "True",
+    "Q7_score_changes_holdings": true,
+    "Q8_no_duplicate_periods": true,
+    "Q9_random_distribution": true,
+    "Q10_ranker_separated": "True"
+  },
+  "run_full_after_quick": false
+}

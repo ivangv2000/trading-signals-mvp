@@ -1,0 +1,2 @@
+subject_strategy,champion,best_candidate_for_full,real_excess_CAGR,information_ratio,null_mean,null_median,null_p95,number_exceeding_real,n_permutations,corrected_empirical_p_value,beats_random,positive_excess_cagr_vs_equal_weight,positive_information_ratio,significant_positive_alpha
+S8_SECTOR_NEUTRAL_MOMENTUM,,S8_SECTOR_NEUTRAL_MOMENTUM,-4.92,-0.473,-21.66,-21.88,-16.71,0,200,0.004975,True,False,False,False

@@ -1,0 +1,4 @@
+rebalance,n_rebalances,total_return_pct,CAGR_pct,sharpe,max_drawdown_pct,annual_vol_pct,years,metric_consistency_error,METRIC_STATUS,n_periods,strategy
+weekly,579,5676.9,42.26,1.299,-33.26,30.9,11.51,0.0,PASS,2893,REBAL_weekly
+biweekly,289,4149.86,38.52,1.229,-35.03,30.33,11.51,0.0,PASS,2893,REBAL_biweekly
+monthly,18,2696.72,35.62,1.084,-51.69,33.31,10.93,0.0,PASS,2748,REBAL_monthly

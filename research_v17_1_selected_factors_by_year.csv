@@ -1,0 +1,11 @@
+test_year,n_train,n_test,selected_factors
+2017,368,208,"rank_mom_120,rank_mom_60,abnormal_volume"
+2018,576,208,"rank_mom_120,rank_mom_252_skip_20,rank_mom_60,reversal_1w"
+2019,784,208,"rank_mom_120,rank_mom_60,reversal_1w,rank_trend"
+2020,992,192,"rank_mom_120,rank_mom_60,rank_trend"
+2021,1184,192,"rank_mom_120,rank_mom_60,rank_trend,above_sma200"
+2022,1392,208,"rank_mom_120,rank_mom_60,rank_trend,price_volume_breakout"
+2023,1584,208,"rank_mom_120,rank_mom_60,price_volume_breakout,above_sma200,rank_trend"
+2024,1792,208,"rank_mom_120,rank_mom_60,price_volume_breakout,rank_trend"
+2025,2000,192,"rank_mom_120,rank_mom_60,price_volume_breakout,rank_trend"
+2026,2192,96,"rank_mom_120,rank_mom_60,price_volume_breakout,above_sma200,rank_trend"

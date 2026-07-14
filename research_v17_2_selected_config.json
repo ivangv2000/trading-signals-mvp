@@ -1,0 +1,20 @@
+{
+  "version": "v17_2_backtest_integrity",
+  "final_status": "FAILED_BACKTEST_INTEGRITY",
+  "scope_status": "QUICK_TEST_ONLY",
+  "top_k": 3,
+  "integrity_gates": {
+    "INTEGRITY_GATE_1_temporal_contract": true,
+    "INTEGRITY_GATE_2_metric_consistency": true,
+    "INTEGRITY_GATE_3_weights_sum_1": "True",
+    "INTEGRITY_GATE_4_no_leverage": "True",
+    "INTEGRITY_GATE_5_random_rank_differs": "True",
+    "INTEGRITY_GATE_6_leakage_all_pass": "False",
+    "INTEGRITY_GATE_7_rebalance_consistent": true,
+    "INTEGRITY_GATE_8_top_k_lt_universe": true,
+    "INTEGRITY_GATE_9_score_changes_holdings": false,
+    "INTEGRITY_GATE_10_no_duplicate_periods": "True"
+  },
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false
+}

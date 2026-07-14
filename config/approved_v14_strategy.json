@@ -1,0 +1,44 @@
+{
+  "version": "v14_champion_refinement",
+  "strategy_id": "v14_r1_return_engine",
+  "strategy_name": "V14 R1 Return Engine",
+  "approved_for_web_paper": true,
+  "approved_for_real_money": false,
+  "status": "APPROVED_FOR_WEB_PAPER",
+  "score": 85,
+  "champion": "R1_RETURN_ENGINE",
+  "rebalance_freq": "W-FRI",
+  "base_engine": {
+    "name": "A_tsmom_63",
+    "description": "Time-series momentum semanal, top 3 activos, volatilidad objetivo 15%",
+    "top_n": 3,
+    "vol_target": 0.15,
+    "lookback_days": 63
+  },
+  "backtest_summary": {
+    "CAGR": 17.28,
+    "total_return": 527.07,
+    "sharpe": 1.123,
+    "sortino": 1.515,
+    "max_drawdown": -23.88,
+    "calmar": 0.724,
+    "annual_volatility": 15.27,
+    "win_years_vs_spy": 0.50,
+    "win_years_vs_qqq": 0.4167,
+    "win_years_vs_6040": 0.9167,
+    "robustness_score": 98,
+    "overfitting_risk": "LOW",
+    "turnover": 0.2333,
+    "num_rebalances": 602,
+    "exposure": 0.767
+  },
+  "warnings": [
+    "Backtest no garantiza resultados futuros.",
+    "No es asesoramiento financiero.",
+    "No está aprobado para dinero real.",
+    "Solo usar como paper trading experimental.",
+    "La estrategia rota semanalmente, no opera intradía.",
+    "Puede pasar semanas en defensivos como SHY si no detecta oportunidades.",
+    "El peor drawdown histórico simulado fue aproximadamente -23.88%."
+  ]
+}

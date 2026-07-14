@@ -1,0 +1,11 @@
+factor,mean_ic,median_ic,ic_std,ic_ir,hit_rate_positive,n_periods,panel
+rank_mom_120,0.0626,0.0618,0.3377,0.1854,0.5899,139,monthly_non_overlapping
+rank_mom_60,0.0454,0.0382,0.3446,0.1317,0.5532,141,monthly_non_overlapping
+price_volume_breakout,0.0333,0.041,0.2942,0.1133,0.5763,59,monthly_non_overlapping
+above_sma200,0.0142,0.0174,0.2787,0.0511,0.5317,126,monthly_non_overlapping
+rank_mom_252_skip_20,0.0016,0.0029,0.3227,0.0051,0.5,132,monthly_non_overlapping
+rank_trend,0.0008,0.028,0.3054,0.0027,0.5224,134,monthly_non_overlapping
+reversal_1w,-0.0096,-0.0191,0.3165,-0.0305,0.4722,144,monthly_non_overlapping
+abnormal_volume,-0.0157,0.028,0.3009,-0.0523,0.5053,95,monthly_non_overlapping
+near_52w_high_score,-0.0226,-0.0227,0.317,-0.0712,0.4688,128,monthly_non_overlapping
+low_vol_score,-0.1072,-0.0912,0.3725,-0.2879,0.4113,141,monthly_non_overlapping

@@ -1,0 +1,17 @@
+ticker,signal,target_weight,previous_weight,change,alpha_score,main_factor_driver,market_regime,confidence,reason,entry_plan,exit_plan,next_review,cash_account_executable
+AAPL,HOLD,0.0864,0.0806,0.0058,60.6,trend,risk_on,60.6,alpha_factory trend | score 61,-,rebalance semanal o score < 60,proximo viernes,True
+AMD,HOLD,0.0491,0.0384,0.0107,80.3,trend,risk_on,80.3,alpha_factory trend | score 80,-,rebalance semanal o score < 60,proximo viernes,True
+DIA,SELL,0.0,0.0806,-0.0806,57.2,trend,risk_on,57.2,alpha_factory trend | score 57,-,rebalance semanal o score < 60,proximo viernes,True
+GOOGL,HOLD,0.0864,0.0806,0.0058,69.8,momentum,risk_on,69.8,alpha_factory momentum | score 70,-,rebalance semanal o score < 60,proximo viernes,True
+IWM,HOLD,0.0864,0.0806,0.0058,69.1,momentum,risk_on,69.1,alpha_factory momentum | score 69,-,rebalance semanal o score < 60,proximo viernes,True
+JPM,BUY,0.0864,0.0,0.0864,60.8,trend,risk_on,60.8,alpha_factory trend | score 61,proxima apertura post-viernes,rebalance semanal o score < 60,proximo viernes,True
+LLY,HOLD,0.0864,0.0806,0.0058,82.6,trend,risk_on,82.6,alpha_factory trend | score 83,-,rebalance semanal o score < 60,proximo viernes,True
+MTUM,HOLD,0.0864,0.0806,0.0058,76.8,trend,risk_on,76.8,alpha_factory trend | score 77,-,rebalance semanal o score < 60,proximo viernes,True
+NVDA,SELL,0.0,0.0746,-0.0746,58.4,trend,risk_on,58.4,alpha_factory trend | score 58,-,rebalance semanal o score < 60,proximo viernes,True
+QQQ,HOLD,0.0864,0.0806,0.0058,68.7,trend,risk_on,68.7,alpha_factory trend | score 69,-,rebalance semanal o score < 60,proximo viernes,True
+SHY,HOLD,0.0,0.0,0.0,36.7,trend,risk_on,36.7,alpha_factory trend | score 37,-,rebalance semanal o score < 60,proximo viernes,True
+SPY,SELL,0.0,0.0806,-0.0806,55.8,momentum,risk_on,55.8,alpha_factory momentum | score 56,-,rebalance semanal o score < 60,proximo viernes,True
+UNH,HOLD,0.0864,0.0806,0.0058,81.1,trend,risk_on,81.1,alpha_factory trend | score 81,-,rebalance semanal o score < 60,proximo viernes,True
+VLUE,HOLD,0.0864,0.0806,0.0058,81.9,trend,risk_on,81.9,alpha_factory trend | score 82,-,rebalance semanal o score < 60,proximo viernes,True
+XLI,BUY,0.0864,0.0,0.0864,64.8,momentum,risk_on,64.8,alpha_factory momentum | score 65,proxima apertura post-viernes,rebalance semanal o score < 60,proximo viernes,True
+XLK,HOLD,0.0864,0.0806,0.0058,77.9,trend,risk_on,77.9,alpha_factory trend | score 78,-,rebalance semanal o score < 60,proximo viernes,True

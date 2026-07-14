@@ -1,0 +1,2 @@
+universe_mode,initial_tickers,downloaded,valid_history_liquidity,filtered_out,survivorship_warning
+QUICK_TEST,39,39,39,0,"Este research usa tickers disponibles actualmente. Para research institucional real haría falta base de datos con acciones deslistadas, como CRSP/Norgate/Sharadar."

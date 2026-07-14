@@ -1,0 +1,17 @@
+ticker,signal,current_rank,previous_rank,rank_change,target_weight,previous_weight,model_score,composite_score,strategy_source,sector,main_factor_1,main_factor_2,main_factor_3,market_regime,confidence,reason,entry_plan,exit_plan,next_review
+AAPL,AVOID,5,6,1,0.0,0.0,-0.4781,0.625,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,above_sma200,rank_mom_252_skip_20,TREND,0.625,rank=5 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+AMD,REDUCE,1,1,0,0.1,0.2,-0.1036,1.0,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,mom_252_skip_20,mom_60,TREND,1.0,rank=1 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+AMZN,AVOID,9,10,1,0.0,0.0,-0.4837,0.2812,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,rank_mom_60,rank_mom_252_skip_20,DEFENSIVE,0.281,rank=9 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+AVGO,REDUCE,5,2,-3,0.0,0.2,-0.6369,0.8594,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,above_sma200,rank_mom_60,TREND,0.859,rank=5 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+BAC,AVOID,7,11,4,0.0,0.0,-0.576,0.6406,S6_ENSEMBLE_COMPOSITE_RANKER,FIN,sma_200,above_sma200,rank_mom_60,TREND,0.641,rank=7 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+COST,AVOID,15,13,-2,0.0,0.0,-0.7355,0.2656,S6_ENSEMBLE_COMPOSITE_RANKER,STAPLES,sma_200,rank_mom_120,composite_score,DEFENSIVE,0.266,rank=15 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+CVX,AVOID,10,9,-1,0.0,0.0,-0.5788,0.625,S6_ENSEMBLE_COMPOSITE_RANKER,ENERGY,sma_200,above_sma200,rank_mom_120,TREND,0.625,rank=10 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+GOOGL,REDUCE,3,2,-1,0.1,0.2,-0.6043,0.8594,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,mom_252_skip_20,above_sma200,TREND,0.859,rank=3 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+JPM,AVOID,16,14,-2,0.0,0.0,-0.9592,0.5781,S6_ENSEMBLE_COMPOSITE_RANKER,FIN,sma_200,above_sma200,rank_mom_60,TREND,0.578,rank=16 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+LLY,AVOID,12,6,-6,0.0,0.0,-0.9136,0.7344,S6_ENSEMBLE_COMPOSITE_RANKER,HEALTH,sma_200,above_sma200,rank_mom_60,TREND,0.734,rank=12 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+META,AVOID,8,16,8,0.0,0.0,-0.3619,0.1562,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,rank_mom_60,composite_score,DEFENSIVE,0.156,rank=8 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+MSFT,AVOID,11,15,4,0.0,0.0,-0.39,0.1094,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,rank_mom_60,composite_score,DEFENSIVE,0.109,rank=11 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+NVDA,AVOID,12,5,-7,0.0,0.0,-0.7856,0.6719,S6_ENSEMBLE_COMPOSITE_RANKER,TECH,sma_200,above_sma200,rank_mom_252_skip_20,TREND,0.672,rank=12 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+UNH,HOLD,2,2,0,0.2,0.2,-0.4061,0.8438,S6_ENSEMBLE_COMPOSITE_RANKER,HEALTH,sma_200,above_sma200,rank_mom_60,TREND,0.844,rank=2 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+WMT,AVOID,14,12,-2,0.0,0.0,-0.5997,0.2188,S6_ENSEMBLE_COMPOSITE_RANKER,STAPLES,sma_200,rank_mom_252_skip_20,rank_mom_120,DEFENSIVE,0.219,rank=14 vs buy=4 hold=14,next_open,rank>14,2026-07-03
+XOM,BUY,4,8,4,0.2,0.0,-0.4878,0.6562,S6_ENSEMBLE_COMPOSITE_RANKER,ENERGY,sma_200,above_sma200,rank_mom_120,TREND,0.656,rank=4 vs buy=4 hold=14,next_open,rank>14,2026-07-03

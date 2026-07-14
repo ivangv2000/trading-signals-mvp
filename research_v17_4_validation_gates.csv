@@ -1,0 +1,11 @@
+gate,pass
+VQ1_current_signals_nonempty,True
+VQ2_empirical_p_correction,True
+VQ3_asset_contribution_reconciles,True
+VQ4_sector_contribution_reconciles,True
+VQ5_S5_has_oos_curve,True
+VQ6_S6_has_oos_curve,True
+VQ7_S8_has_curve,True
+VQ8_target_weights_sum_1,True
+VQ9_no_leverage,True
+VQ10_config_hash_valid,True

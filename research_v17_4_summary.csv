@@ -1,0 +1,2 @@
+MODE,FINAL_STATUS,n_valid_stocks,n_sectors,top_k,champion,null_corrected_p,ranker_oos_ic,global_pbo,preregistered_pbo,global_dsr,preregistered_dsr,config_sha256,current_signals_n,s6_fallbacks
+VALIDATE_QUICK,PASSED_VALIDATION_READY_FOR_FULL_250,16,5,4,S8_SECTOR_NEUTRAL_MOMENTUM,0.004975,0.0678,0.125,0.125,0.0001,0.0246,b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd,16,2

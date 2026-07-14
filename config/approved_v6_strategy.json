@@ -1,0 +1,54 @@
+{
+  "version": "v6_professional_audit_lab",
+  "strategy_id": "blended_champion_v6_alpha_0_5",
+  "strategy_name": "Blended Champion V6",
+  "selected_strategy": "blended_champion_weights_alpha_0.5",
+  "decision": "PROMOTE_V6_BLEND",
+  "final_score_v6": 100,
+  "approved_for_web_paper": true,
+  "approved_for_real_money": false,
+  "status": "experimental_paper_trading",
+  "blend": {
+    "champion_trend_following_v4_weight": 0.5,
+    "adaptive_ensemble_weight": 0.5
+  },
+  "parameters": {
+    "fast_ma": 50,
+    "slow_ma": 200,
+    "vol_target": 0.15,
+    "max_asset_weight": 0.30,
+    "defensive_asset": "SHY",
+    "rebalance_freq": "W-FRI"
+  },
+  "universe": [
+    "SPY", "QQQ", "IWM",
+    "AAPL", "MSFT", "NVDA", "TSLA", "AMD", "META", "GOOGL", "AMZN"
+  ],
+  "defensive_assets": ["SHY", "IEF", "TLT", "GLD", "CASH"],
+  "backtest_summary": {
+    "total_return": 1853.28,
+    "CAGR": 19.72,
+    "annual_volatility": 16.71,
+    "sharpe": 1.163,
+    "sortino": 1.523,
+    "max_drawdown": -34.91,
+    "calmar": 0.565,
+    "positive_days_pct": 56.21,
+    "turnover_avg": 0.0435,
+    "turnover_ann": 10.951,
+    "total_cost_pct": 36.1,
+    "excess_vs_spy": 1065.97,
+    "excess_vs_qqq": 159.34,
+    "excess_vs_equal_weight": 930.09,
+    "excess_vs_6040": 1478.56
+  },
+  "warnings": [
+    "Backtest no garantiza resultados futuros.",
+    "No es asesoramiento financiero.",
+    "No está aprobado para dinero real.",
+    "Solo usar como paper trading experimental.",
+    "La máxima caída histórica simulada fue aproximadamente -34.91%, que es alta.",
+    "ML experimental no integrado.",
+    "Las métricas PSR/DSR son aproximadas."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "v16_drawdown_controlled_meta",
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false,
+  "v16_score": 50,
+  "status": "REJECTED",
+  "champion": "V16_F_V14_AGGRESSIVE_CAPPED",
+  "controls": [
+    "volatility_managed",
+    "drawdown_breaker",
+    "stress_filter",
+    "concentration_cap"
+  ],
+  "drawdown_limits": {
+    "soft": -0.15,
+    "hard": -0.22
+  },
+  "weight_caps": {
+    "etf": 0.3,
+    "stock": 0.2,
+    "special": {
+      "NVDA": 0.2,
+      "AAPL": 0.2,
+      "MSFT": 0.2,
+      "QQQ": 0.25
+    }
+  }
+}

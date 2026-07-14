@@ -1,0 +1,24 @@
+{
+  "version": "v17_universal_equity_alpha_factory",
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false,
+  "v17_score": 35,
+  "status": "REJECTED",
+  "champion": "U2_COMPOSITE_TOP30_DIVERSIFIED",
+  "universe_mode": "QUICK_TEST",
+  "selected_factors": [
+    "rank_mom_60",
+    "rank_trend",
+    "trend_stack",
+    "rank_mom_120",
+    "near_52w_high_score",
+    "price_volume_breakout",
+    "rank_low_vol",
+    "rank_mom_252_skip_20",
+    "earnings_proxy_gap"
+  ],
+  "warnings": [
+    "Este research usa tickers disponibles actualmente. Para research institucional real har\u00eda falta base de datos con acciones deslistadas, como CRSP/Norgate/Sharadar.",
+    "ML research-only unless OOS improvement proven"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "version": "v17_4",
+  "mode": "VALIDATE_QUICK",
+  "final_status": "PASSED_VALIDATION_READY_FOR_FULL_250",
+  "approved_for_real_money": false,
+  "validation_gates": {
+    "VQ1_current_signals_nonempty": true,
+    "VQ2_empirical_p_correction": true,
+    "VQ3_asset_contribution_reconciles": true,
+    "VQ4_sector_contribution_reconciles": true,
+    "VQ5_S5_has_oos_curve": true,
+    "VQ6_S6_has_oos_curve": true,
+    "VQ7_S8_has_curve": true,
+    "VQ8_target_weights_sum_1": true,
+    "VQ9_no_leverage": true,
+    "VQ10_config_hash_valid": true
+  },
+  "preregistered_hash": "b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd"
+}

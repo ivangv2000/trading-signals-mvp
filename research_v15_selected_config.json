@@ -1,0 +1,53 @@
+{
+  "version": "v15_meta_champion_regime",
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false,
+  "v15_score": 70,
+  "status": "CANDIDATE",
+  "champion": "M7_V6_V14_ADAPTIVE",
+  "current_regime": "risk_on_strong",
+  "engines": [
+    "v14_return",
+    "v6_aggressive",
+    "benchmark_core",
+    "defensive"
+  ],
+  "regime_blend": {
+    "risk_on_strong": {
+      "v14_return": 0.45,
+      "benchmark_core": 0.3,
+      "v6_aggressive": 0.2,
+      "defensive": 0.05
+    },
+    "risk_on_normal": {
+      "v14_return": 0.4,
+      "v6_aggressive": 0.25,
+      "benchmark_core": 0.2,
+      "defensive": 0.15
+    },
+    "mixed": {
+      "v14_return": 0.35,
+      "v6_aggressive": 0.2,
+      "benchmark_core": 0.15,
+      "defensive": 0.3
+    },
+    "defensive": {
+      "v14_return": 0.2,
+      "v6_aggressive": 0.1,
+      "benchmark_core": 0.1,
+      "defensive": 0.6
+    },
+    "crash_risk": {
+      "v14_return": 0.0,
+      "v6_aggressive": 0.0,
+      "benchmark_core": 0.0,
+      "defensive": 1.0
+    }
+  },
+  "ml_research_only": true,
+  "warnings": [
+    "Backtest no garantiza resultados futuros.",
+    "Meta-modelo combina V14/V6/benchmark/defensive.",
+    "No aprobado para dinero real."
+  ]
+}

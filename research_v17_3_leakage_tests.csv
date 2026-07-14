@@ -1,0 +1,7 @@
+test,real_excess_CAGR_pct,null_mean_excess_CAGR,null_median_excess_CAGR,null_p95_excess_CAGR,empirical_p_value,pass,n_permutations,metric,value,p_value,control,null_mean_ic,null_std_ic,real_ic
+B_random_features_portfolio,8.98,-12.36,-12.51,-6.3,0.0,True,50.0,portfolio_null,,,,,,
+real_ic,,,,,,True,,,0.04664713372949059,0.0,,,,
+shifted_auc,,,,,,True,,,0.5485867560335645,1.0,,,,
+,,,,,,True,,,,0.0,D1_SHUFFLE_TARGET_WITHIN_DATE,0.0005,0.0089,0.0466
+,,,,,,True,,,,0.0,D2_SHUFFLE_FEATURE_ROWS,-0.0003,0.0085,0.0466
+,,,,,,True,,,,0.0,D3_SHUFFLE_SCORES,-0.0002,0.0093,0.0466

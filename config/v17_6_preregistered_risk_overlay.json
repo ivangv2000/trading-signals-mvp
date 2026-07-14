@@ -1,0 +1,142 @@
+{
+  "version": "v17_6",
+  "created_at": "2026-07-12T23:55:00Z",
+  "description": "Preregistered risk overlay research on frozen S5_XGBRANKER. No tuning, no new overlays.",
+  "inherits_from": "v17_5_2_2",
+  "starting_point": {
+    "final_status": "READY_FOR_RISK_OVERLAY_RESEARCH",
+    "champion": "S5_XGBRANKER",
+    "inherited_CAGR_pct": 26.90,
+    "inherited_excess_CAGR_vs_B1": 11.44,
+    "inherited_information_ratio_vs_B1": 0.726,
+    "inherited_null_p_vs_B1": 0.001996,
+    "inherited_max_drawdown_pct": -51.13,
+    "inherited_preregistered_dsr": 0.7056,
+    "gates_pass": 41,
+    "gates_total": 45
+  },
+  "frozen_base_strategy": "S5_XGBRANKER",
+  "frozen_components": [
+    "XGBRanker_model",
+    "features",
+    "scores",
+    "walk_forward",
+    "asof_universe",
+    "top_25_selection",
+    "stock_cap_5pct",
+    "sector_cap_25pct",
+    "costs",
+    "slippage",
+    "single_ledger_motor",
+    "benchmark_B1",
+    "live_signal_rules"
+  ],
+  "overlays_preregistered": [
+    "R0_BASE_S5",
+    "R1_VOL_TARGET_12",
+    "R2_SPY_TREND",
+    "R3_COMBINED_FIXED"
+  ],
+  "overlay_parameters": {
+    "R0_BASE_S5": {
+      "exposure": 1.0,
+      "description": "Original S5 weights, no overlay"
+    },
+    "R1_VOL_TARGET_12": {
+      "target_vol_annual": 0.12,
+      "lookback_sessions": 63,
+      "min_exposure": 0.25,
+      "defensive_asset": "SHY",
+      "formula": "exposure = max(min_exposure, min(1.0, target_vol / realized_vol_63))"
+    },
+    "R2_SPY_TREND": {
+      "risk_on_exposure": 1.0,
+      "risk_off_exposure": 0.35,
+      "sma_window": 200,
+      "sma_shift_days": 1,
+      "defensive_asset": "SHY",
+      "rule": "SPY Close > SMA200_shifted => risk_on else risk_off"
+    },
+    "R3_COMBINED_FIXED": {
+      "min_exposure": 0.25,
+      "defensive_asset": "SHY",
+      "formula": "exposure = max(min_exposure, min(exposure_vol, exposure_trend))"
+    }
+  },
+  "temporal_contract": {
+    "signal_time": "AFTER_CLOSE",
+    "execution_time": "NEXT_TRADING_DAY_OPEN",
+    "valuation_time": "DAILY_CLOSE",
+    "forbidden_inputs": [
+      "future_volatility",
+      "future_drawdown",
+      "execution_day_returns_before_open",
+      "information_after_signal_date"
+    ]
+  },
+  "weight_allocation": {
+    "stock_weights_adjusted": "original_stock_weights * risk_exposure",
+    "shy_weight": "original_SHY + (1 - risk_exposure) * original_stock_weight_sum"
+  },
+  "period_labels": {
+    "research": "RESEARCH_2016_2023",
+    "reused_test": "REUSED_TEST_2024_PLUS",
+    "full": "FULL_AVAILABLE_PERIOD"
+  },
+  "selection_rules": {
+    "max_drawdown_pct_gt": -35,
+    "min_CAGR_pct": 15,
+    "min_excess_CAGR_vs_B1": 4,
+    "min_information_ratio": 0.30,
+    "max_null_p": 0.05,
+    "min_pct_years_beating_B1": 55,
+    "min_pct_years_beating_SPY": 55,
+    "cost_2x_positive_CAGR": true,
+    "single_ledger_reconciliation": true,
+    "no_lookahead": true,
+    "caps_pass": true,
+    "rank_order": [
+      "max_drawdown_pct_desc",
+      "calmar_ratio_desc",
+      "information_ratio_desc",
+      "CAGR_pct_desc"
+    ]
+  },
+  "null_test": {
+    "n_permutations": 200,
+    "cap_matched": true,
+    "only_selected_overlay": true,
+    "abort_if_technical_tests_fail": true
+  },
+  "dsr_audit": {
+    "n_preregistered_strategies": 8,
+    "n_overlay_trials_added": 4,
+    "total_trials_for_overlay_dsr": 12
+  },
+  "gates": {
+    "R1_base_reproduced": "R0 metrics approximate V17.5.2.2 inherited",
+    "R2_overlay_temporal_contract": "no lookahead in overlay inputs",
+    "R3_exposure_limits": "exposure in [0.25, 1.0]",
+    "R4_weights_and_caps": "weights sum 1, stock<=5%, sector<=25%",
+    "R5_single_ledger_reconciles": "financial reconciliation pass",
+    "R6_drawdown_better_than_minus_35": "selected overlay max DD > -35%",
+    "R7_cagr_at_least_15": "selected CAGR >= 15%",
+    "R8_excess_cagr_at_least_4": "excess vs B1 >= 4%",
+    "R9_information_ratio_at_least_030": "IR >= 0.30",
+    "R10_cost_robustness": "2x costs keep CAGR positive",
+    "R11_null_p_below_005": "null p < 0.05 for selected overlay",
+    "R12_no_parameter_tuning": "only preregistered overlays evaluated",
+    "R13_reused_test_positive_active_return": "REUSED_TEST_2024_PLUS excess CAGR > 0"
+  },
+  "final_status_options": [
+    "FAILED_RISK_OVERLAY_INTEGRITY",
+    "RISK_OVERLAY_NOT_YET_ACCEPTABLE",
+    "RISK_OVERLAY_CANDIDATE_SURVIVORSHIP_BIASED",
+    "READY_FOR_FORWARD_PAPER_TRADING"
+  ],
+  "POINT_IN_TIME_MEMBERSHIP": false,
+  "survivorship_warning": "Current constituent source still contains survivorship bias.",
+  "approved_for_real_money": false,
+  "paper_trading_start": "2026-07-10",
+  "next_phase_on_success": "FORWARD_PAPER_TRADING"
+}

@@ -1,0 +1,2 @@
+mode,n_downloaded,n_valid_stocks,n_valid_etfs,n_sectors,top_k,buy_rank,hold_until_rank,survivorship_warning
+VALIDATE_QUICK,39,16,23,5,4,4,14,El universo utiliza constituyentes actuales del S&P 500 y mantiene survivorship bias. No es point-in-time.

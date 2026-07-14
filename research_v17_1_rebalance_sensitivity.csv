@@ -1,0 +1,4 @@
+test_type,param,CAGR,sharpe,max_drawdown,n_weeks
+rebalance,weekly,31.05,1.561,-23.05,576
+rebalance,biweekly,66.74,2.045,-22.09,288
+rebalance,monthly,191.59,2.851,-24.3,144

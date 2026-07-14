@@ -1,0 +1,9 @@
+test,metric,value,pass
+A_shuffled_labels,auc,0.512,True
+A_shuffled_labels,mean_ic,0.0051,True
+B_random_features,auc,0.5128,True
+C_shifted_labels_1y,auc,0.5836,True
+D_shuffled_tickers,ic,-0.0511,True
+E_future_feature_blocked,n_future_cols,4.0,True
+baseline_real_auc,auc,0.617,True
+baseline_real_ic,ic,-0.052,True

@@ -1,0 +1,2 @@
+universe_mode,quick_test,n_downloaded_assets,n_valid_assets,n_valid_stocks,n_valid_etfs,n_sectors,GATE_2_min_200_stocks,GATE_2_status,survivorship_warning
+QUICK_TEST,True,39,39,16,23,5,False,NOT_TESTED_QUICK_MODE,El universo usa constituyentes actuales y conserva survivorship bias. No puede considerarse validacion institucional point-in-time.

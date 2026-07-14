@@ -1,0 +1,36 @@
+{
+  "version": "v17_1_leakage_generalization_audit",
+  "audit_status": "PASSED_AUDIT_BUT_NO_EDGE",
+  "approved_for_web_paper": false,
+  "approved_for_real_money": false,
+  "data_provider": "YFINANCE",
+  "future_providers": [
+    "NORGATE",
+    "SHARADAR",
+    "CRSP_EXPORT"
+  ],
+  "gates": {
+    "GATE_1_leakage": true,
+    "GATE_2_min_200_stocks": true,
+    "GATE_3_oos_only": true,
+    "GATE_4_metrics_correct": true,
+    "GATE_5_ic_stable": false,
+    "GATE_6_pbo": false,
+    "GATE_7_dsr": false,
+    "GATE_8_concentration": true,
+    "GATE_9_net_after_costs": true,
+    "GATE_10_beats_benchmarks": true
+  },
+  "selected_factors": [
+    "rank_mom_60",
+    "rank_mom_120",
+    "rank_mom_252_skip_20",
+    "rank_trend",
+    "near_52w_high_score",
+    "above_sma200",
+    "low_vol_score",
+    "abnormal_volume",
+    "price_volume_breakout",
+    "reversal_1w"
+  ]
+}

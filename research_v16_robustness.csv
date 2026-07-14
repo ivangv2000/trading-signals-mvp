@@ -1,0 +1,2 @@
+start_date,strategy,total_return,CAGR,sharpe,sortino,max_drawdown,calmar,annual_volatility,win_years_vs_spy,win_years_vs_qqq,win_years_vs_6040,turnover,total_cost,num_rebalances,exposure,concentration_risk,top_contributor_pct,recent_years_score,recent_years_label
+2010-01-01,V16_F_V14_AGGRESSIVE_CAPPED,501.99,11.49,1.04,1.16,-18.57,0.619,11.07,0.35294117647058826,0.23529411764705882,0.5882352941176471,0.1591,5356.0,601,1,MEDIUM,29.85,-20,NEGATIVE

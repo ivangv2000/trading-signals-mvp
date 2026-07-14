@@ -1,0 +1,2 @@
+test,real_excess_CAGR_pct,null_mean_excess_CAGR,null_median_excess_CAGR,null_p95_excess_CAGR,empirical_p_value,pass,n_permutations
+B_random_features_portfolio,8.98,-12.36,-12.51,-6.3,0.0,True,50

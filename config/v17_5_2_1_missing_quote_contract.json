@@ -1,0 +1,32 @@
+{
+  "version": "v17_5_2_1",
+  "created_at": "2026-07-12T20:54:00Z",
+  "description": "Missing-quote carry-forward and live-signal label hotfix",
+  "inherits_from": "v17_5_2_execution_contract",
+  "price_continuity": {
+    "carry_forward_on_missing_close": true,
+    "never_zero_valuation_on_gap": true,
+    "accumulate_pnl_on_resume": true,
+    "new_position_use_open_if_close_missing": true
+  },
+  "equity_continuity_tolerance_usd": 0.01,
+  "v17_5_2_reference": {
+    "FINAL_STATUS": "FAILED_SINGLE_LEDGER",
+    "synthetic_tests_pass": "10/10",
+    "gates_pass": 36,
+    "gates_total": 43,
+    "champion": "S5_XGBRANKER",
+    "CAGR_pct": 26.61,
+    "excess_CAGR_vs_B1": 11.15,
+    "information_ratio": 0.719,
+    "null_corrected_p": 0.001996,
+    "preregistered_pbo": 0.25,
+    "preregistered_dsr": 0.70,
+    "max_drawdown_pct": -51.86,
+    "pnl_absolute_error": 24.207062,
+    "pnl_relative_error": 0.000188994,
+    "root_cause_ticker": "FISV",
+    "root_cause_gap_pnl": 24.207062
+  },
+  "approved_for_real_money": false
+}

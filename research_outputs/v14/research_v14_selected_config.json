@@ -1,0 +1,16 @@
+{
+  "version": "v14_champion_refinement",
+  "approved_for_web_paper": true,
+  "approved_for_real_money": false,
+  "v14_score": 85,
+  "status": "APPROVED_FOR_WEB_PAPER",
+  "champion": "R1_RETURN_ENGINE",
+  "bases": {
+    "A_tsmom_63": "top_n=3 vol=0.15 lookback=63",
+    "E4_adaptive": "risk-on/off sleeve mix"
+  },
+  "warnings": [
+    "Backtest no garantiza resultados futuros.",
+    "R7 es research-only si existe V6."
+  ]
+}

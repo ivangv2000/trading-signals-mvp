@@ -1,0 +1,8 @@
+strategy,CAGR_pct,metric_status,equity_start,equity_end,max_weight_sum,duplicate_periods,SANITY_REVIEW_REQUIRED
+B0,30.43,PASS,9980.0,182142.04,1.0,0,False
+B1,34.92,PASS,9980.0,263787.72,1.0,0,False
+B2,42.89,PASS,9980.0,606362.97,1.0,0,False
+B3,42.26,PASS,9980.0,576534.54,1.0,0,False
+B4_median,6.38,PASS,9980.0,20329.03,1.0,0,False
+B5,13.99,PASS,9980.0,45024.1,1.0,0,False
+B6,29.88,PASS,9980.0,202151.71,1.0,0,False

@@ -1,0 +1,5 @@
+signal_date,ticker,signal,previous_weight,target_weight,strategy,reason
+2026-07-14,SHY,HOLD,0.1,0.1,V14 R1 Return Engine,continúa seleccionada sin cambio de peso.
+2026-07-14,UNH,HOLD,0.3,0.3,V14 R1 Return Engine,continúa seleccionada sin cambio de peso.
+2026-07-14,VLUE,HOLD,0.3,0.3,V14 R1 Return Engine,continúa seleccionada sin cambio de peso.
+2026-07-14,XLK,HOLD,0.3,0.3,V14 R1 Return Engine,continúa seleccionada sin cambio de peso.

@@ -1,0 +1,27 @@
+{
+  "bugs_fixed": [
+    "period_metrics_rebuilt_from_returns",
+    "wealth_based_pnl_contribution",
+    "active_drawdown_relative_wealth",
+    "champion_requires_positive_alpha",
+    "beats_random_vs_positive_alpha_separated",
+    "current_signals_shy_residual_weights",
+    "live_strategy_matches_selected_strategy",
+    "next_review_future_rebalance_date"
+  ],
+  "hash_unchanged": true,
+  "hotfix_code_sha256": "40fb14dea2080928cf330c72c5f2f3571f631261e985d972f5a752d8737a4cb7",
+  "hotfix_date": "2026-07-10T15:08:14.235197",
+  "original_preregistered_hash": "b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd",
+  "unchanged": [
+    "features",
+    "xgb_params",
+    "costs",
+    "top_k",
+    "caps",
+    "ranking_rules",
+    "entry_exit_rules"
+  ],
+  "verified_preregistered_hash": "b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd",
+  "version": "v17_4_1"
+}

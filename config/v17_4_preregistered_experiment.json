@@ -1,0 +1,101 @@
+{
+  "version": "v17_4",
+  "created_at": "2026-07-10T13:20:00Z",
+  "description": "Pre-registered Full Universe Alpha Challenge \u00e2\u20ac\u201d frozen before FULL_250",
+  "strategies": [
+    "S1_MOMENTUM_12_1",
+    "S2_MOMENTUM_TREND",
+    "S3_LOW_VOL_MOMENTUM",
+    "S4_CORRECTED_COMPOSITE",
+    "S5_XGBRANKER",
+    "S6_ENSEMBLE_COMPOSITE_RANKER",
+    "S7_SECTOR_NEUTRAL_COMPOSITE",
+    "S8_SECTOR_NEUTRAL_MOMENTUM"
+  ],
+  "parameters": {
+    "START_DATE": "2010-01-01",
+    "TRANSACTION_COST": 0.001,
+    "SLIPPAGE": 0.001,
+    "FORWARD_HORIZON": 20,
+    "PURGE_DAYS": 20,
+    "EMBARGO_DAYS": 20,
+    "TOP_K_FULL": 25,
+    "BUY_RANK": 25,
+    "HOLD_UNTIL_RANK": 40,
+    "MAX_STOCK_WEIGHT": 0.05,
+    "MAX_SECTOR_WEIGHT": 0.25,
+    "REBALANCE_FREQUENCIES": [
+      "W-FRI",
+      "MONTHLY"
+    ],
+    "RANDOM_SEED": 42
+  },
+  "xgb_ranker": {
+    "objective": "rank:ndcg",
+    "eval_metric": "ndcg@25",
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "n_estimators": 300,
+    "subsample": 0.8,
+    "colsample_bytree": 0.7,
+    "min_child_weight": 10,
+    "reg_alpha": 1.0,
+    "reg_lambda": 5.0,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "ensemble": {
+    "composite_weight": 0.5,
+    "xgb_weight": 0.5
+  },
+  "features": [
+    "mom_60",
+    "mom_120",
+    "mom_252_skip_20",
+    "sma_200",
+    "above_sma200",
+    "rank_mom_60",
+    "rank_mom_120",
+    "rank_mom_252_skip_20",
+    "composite_score"
+  ],
+  "benchmarks": [
+    "B0_SPY",
+    "B1_EQUAL_WEIGHT",
+    "B3_MOMENTUM_12_1"
+  ],
+  "research_period": {
+    "start": "2016-01-01",
+    "end": "2023-12-31"
+  },
+  "locked_holdout_period": {
+    "start": "2024-01-01",
+    "end": null
+  },
+  "approval_rules": {
+    "PRIMARY_METRIC": "information_ratio_vs_equal_weight",
+    "permutation_p_threshold": 0.05,
+    "min_years_beating_ew": 0.55,
+    "min_years_beating_spy": 0.55,
+    "min_information_ratio": 0.3,
+    "max_drawdown_pct": -35,
+    "max_top_ticker_pnl_pct": 15,
+    "max_top_sector_pnl_pct": 35,
+    "preregistered_pbo_threshold": 0.5,
+    "preregistered_dsr_threshold": 0.95,
+    "holdout_active_return_positive": true
+  },
+  "universe": {
+    "MAX_TICKERS_FULL": 250,
+    "MIN_VALID_STOCKS": 200,
+    "MIN_SECTORS": 8,
+    "MIN_HISTORY_DAYS": 1000,
+    "survivorship_warning": "El universo utiliza constituyentes actuales del S&P 500 y mantiene survivorship bias. No es point-in-time."
+  },
+  "null_tests": {
+    "N_NULL_PORTFOLIO_PERMUTATIONS_FULL": 500,
+    "N_NULL_FACTOR_PERMUTATIONS": 500
+  },
+  "trials_accumulated": 261,
+  "config_sha256": "b2ae61b9532e63e922d71911445d523c4a1a93a48b2c1cc24aab3a75ac057bcd"
+}

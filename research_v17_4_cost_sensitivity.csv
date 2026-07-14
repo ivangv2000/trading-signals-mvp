@@ -1,0 +1,4 @@
+cost_multiplier,total_return_pct,CAGR_pct,sharpe,max_drawdown_pct,annual_vol_pct,years,metric_consistency_error,METRIC_STATUS,n_periods
+0.5,278.53,13.53,1.405,-18.02,9.37,10.49,0.0,PASS,2637
+1.0,253.79,12.8,1.336,-18.09,9.37,10.49,0.0,PASS,2637
+2.0,209.03,11.35,1.198,-18.22,9.37,10.49,0.0,PASS,2637

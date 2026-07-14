@@ -1,0 +1,2 @@
+ticker,signal,target_weight,previous_weight,change,score,strategy_source,reason,entry_plan,exit_plan,next_review,cash_account_executable
+SHY,HOLD,1.0,1.0,0.0,50.0,R1_RETURN_ENGINE,V14 refinement | hold,-,mantener hasta viernes,proximo viernes,True
