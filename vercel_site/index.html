@@ -32,14 +32,19 @@
       gap: 1rem;
       background: #0b1220;
       z-index: 10;
-      transition: opacity 0.35s ease;
       padding: 1rem;
       text-align: center;
     }
 
-    #loader.hidden {
-      opacity: 0;
-      pointer-events: none;
+    #loader.is-hidden {
+      display: none;
+    }
+
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
     }
 
     .spinner {
@@ -55,16 +60,72 @@
       to { transform: rotate(360deg); }
     }
 
-    #loader p {
+    .loading-state p,
+    #timeout-panel p {
       font-size: 0.95rem;
       color: #94a3b8;
       letter-spacing: 0.02em;
+      max-width: 28rem;
+      line-height: 1.5;
     }
 
-    #loader h1 {
+    .loading-state h1,
+    #timeout-panel h2 {
       font-size: clamp(1.1rem, 4vw, 1.35rem);
       font-weight: 800;
       color: #f9fafb;
+    }
+
+    #timeout-panel {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      z-index: 11;
+    }
+
+    #timeout-panel.is-visible {
+      display: flex;
+    }
+
+    .diagnostic {
+      font-size: 0.85rem !important;
+      color: #64748b !important;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 0.25rem;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid #334155;
+      background: #1e293b;
+      color: #f9fafb;
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: #334155;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      border-color: #2563eb;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
     }
 
     #app-frame {
@@ -76,39 +137,106 @@
       border: 0;
       display: block;
       background: #0b1220;
+      z-index: 1;
+    }
+
+    #app-frame.is-ready {
+      z-index: 20;
     }
   </style>
 </head>
 <body>
-  <div id="loader" aria-live="polite">
-    <h1>V14 Trading Signals</h1>
-    <div class="spinner" role="status" aria-label="Cargando"></div>
-    <p>Cargando V14 Trading Signals…</p>
+  <div id="loader">
+    <div class="loading-state" id="loading-state">
+      <h1>V14 Trading Signals</h1>
+      <div class="spinner" role="status" aria-label="Cargando"></div>
+      <p>Cargando V14 Trading Signals…</p>
+    </div>
+
+    <div id="timeout-panel" aria-live="assertive">
+      <h2>V14 Trading Signals</h2>
+      <p>La aplicación está tardando más de lo habitual.</p>
+      <p class="diagnostic">Comprueba que la aplicación Streamlit sea pública y esté despierta.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="retry-btn">Reintentar</button>
+        <a
+          class="btn"
+          id="open-direct-btn"
+          href="https://v14-trading-signals.streamlit.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Abrir Streamlit directamente</a>
+      </div>
+    </div>
   </div>
 
   <iframe
     id="app-frame"
     title="V14 Trading Signals"
-    src="PEGA_AQUI_MI_URL_DE_STREAMLIT/?embed=true"
+    src="https://v14-trading-signals.streamlit.app/?embed=true"
     allow="clipboard-read; clipboard-write"
     loading="eager"
+    onload="handleIframeLoad()"
   ></iframe>
 
   <script>
-    (function () {
-      var frame = document.getElementById("app-frame");
-      var loader = document.getElementById("loader");
+    var STREAMLIT_BASE_URL = "https://v14-trading-signals.streamlit.app";
+    var STREAMLIT_EMBED_URL = STREAMLIT_BASE_URL + "/?embed=true";
 
-      function hideLoader() {
-        loader.classList.add("hidden");
-        setTimeout(function () {
-          loader.style.display = "none";
-        }, 400);
+    var frame = document.getElementById("app-frame");
+    var loader = document.getElementById("loader");
+    var loadingState = document.getElementById("loading-state");
+    var timeoutPanel = document.getElementById("timeout-panel");
+    var retryBtn = document.getElementById("retry-btn");
+    var openDirectBtn = document.getElementById("open-direct-btn");
+    var iframeLoaded = false;
+    var timeoutShown = false;
+    var timeoutTimer = null;
+
+    openDirectBtn.href = STREAMLIT_BASE_URL;
+
+    function showTimeoutPanel() {
+      if (iframeLoaded) {
+        return;
       }
+      timeoutShown = true;
+      loadingState.style.display = "none";
+      timeoutPanel.classList.add("is-visible");
+    }
 
-      frame.addEventListener("load", hideLoader);
-      setTimeout(hideLoader, 12000);
-    })();
+    function hideLoader() {
+      loader.classList.add("is-hidden");
+      frame.classList.add("is-ready");
+    }
+
+    function handleIframeLoad() {
+      iframeLoaded = true;
+      if (timeoutTimer) {
+        clearTimeout(timeoutTimer);
+      }
+      hideLoader();
+    }
+
+    function reloadIframe() {
+      iframeLoaded = false;
+      timeoutShown = false;
+      loadingState.style.display = "flex";
+      timeoutPanel.classList.remove("is-visible");
+      loader.classList.remove("is-hidden");
+      frame.classList.remove("is-ready");
+      frame.src = STREAMLIT_EMBED_URL + "&_retry=" + Date.now();
+      startTimeoutWatch();
+    }
+
+    function startTimeoutWatch() {
+      if (timeoutTimer) {
+        clearTimeout(timeoutTimer);
+      }
+      timeoutTimer = setTimeout(showTimeoutPanel, 20000);
+    }
+
+    retryBtn.addEventListener("click", reloadIframe);
+    startTimeoutWatch();
   </script>
 </body>
 </html>
