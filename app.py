@@ -22,10 +22,23 @@ signals_page = st.Page(
     default=True,
 )
 
-explanation_page = st.Page(
+d2_research_page = st.Page(
+    "views/d2_shadow_research.py",
+    title="Investigación D2",
+    icon="🧪",
+)
+
+documentation_page = st.Page(
+    "views/documentation_hub.py",
+    title="Documentación",
+    icon="📚",
+)
+
+legacy_how_page = st.Page(
     "views/how_v14_works.py",
-    title="Cómo funciona",
+    title="Cómo funciona (legacy)",
     icon="🧠",
+    visibility="hidden",
 )
 
 advanced_page = st.Page(
@@ -36,13 +49,12 @@ advanced_page = st.Page(
 )
 
 navigation = st.navigation(
-    [signals_page, explanation_page, advanced_page],
-    position="top",
+    [signals_page, d2_research_page, documentation_page, legacy_how_page, advanced_page],
+    position="hidden",
 )
 
 navigation.run()
 
-# Paper trading público — no ejecuta órdenes.
 from ui.v14_styles import render_footer_disclaimer
 
 render_footer_disclaimer()

@@ -16,6 +16,7 @@ from services.user_portfolio_action_service import (
 )
 from services.v14_signal_service import calculate_v14_signals
 from services.v14_snapshot_service import load_latest_v14_snapshot, save_v14_snapshot
+from ui.site_navigation import render_primary_navigation
 from ui.v14_components import (
     compute_capital_summary,
     prepare_actions_table,
@@ -28,6 +29,8 @@ from ui.v14_components import (
     render_user_global_action,
     render_user_signal_sections,
 )
+
+render_primary_navigation("signals_v14")
 
 st.markdown('<h1 class="v14-hero-title">SEÑALES V14</h1>', unsafe_allow_html=True)
 st.markdown(
@@ -166,3 +169,25 @@ else:
             use_container_width=True,
             hide_index=True,
         )
+
+st.markdown("---")
+st.markdown('<div class="v14-section-title">Entiende cómo se genera esta señal</div>', unsafe_allow_html=True)
+st.markdown(
+    """
+    <div class="doc-link-cards">
+        <div class="doc-mini-card"><div class="doc-mini-card-title">Indicadores</div>
+        <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Momentum y tendencia por activo</div></div>
+        <div class="doc-mini-card"><div class="doc-mini-card-title">Ranking</div>
+        <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Comparación transversal semanal</div></div>
+        <div class="doc-mini-card"><div class="doc-mini-card-title">Construcción de cartera</div>
+        <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Top 3, vol target y SHY</div></div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+st.page_link(
+    "views/documentation_hub.py",
+    label="Ver metodología completa de V14",
+    icon="📚",
+    query_params={"doc": "v14"},
+)
