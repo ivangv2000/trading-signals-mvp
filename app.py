@@ -28,6 +28,12 @@ d2_research_page = st.Page(
     icon="🧪",
 )
 
+m2_research_page = st.Page(
+    "views/m2_research_view.py",
+    title="Investigación M2",
+    icon="🧪",
+)
+
 documentation_page = st.Page(
     "views/documentation_hub.py",
     title="Documentación",
@@ -49,7 +55,7 @@ advanced_page = st.Page(
 )
 
 navigation = st.navigation(
-    [signals_page, d2_research_page, documentation_page, legacy_how_page, advanced_page],
+    [signals_page, d2_research_page, m2_research_page, documentation_page, legacy_how_page, advanced_page],
     position="hidden",
 )
 

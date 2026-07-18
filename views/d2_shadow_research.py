@@ -6,6 +6,13 @@ import pandas as pd
 import streamlit as st
 
 from services.d2_shadow_status_service import build_d2_shadow_view_model
+from services.research_status_service import load_latest_d2_status
+from ui.research_status_components import (
+    render_execution_status,
+    render_model_comparison_table,
+    render_research_disclaimer,
+    render_status_badge,
+)
 from ui.site_navigation import render_primary_navigation
 from ui.v14_styles import render_d2_experimental_banner, render_d2_integrity_alerts
 
@@ -24,6 +31,7 @@ def _positions_table(positions: list[dict]) -> pd.DataFrame:
 
 
 vm = build_d2_shadow_view_model()
+d2 = load_latest_d2_status()
 
 render_primary_navigation("d2_shadow_research")
 
@@ -35,6 +43,8 @@ st.markdown(
 )
 
 render_d2_experimental_banner()
+render_research_disclaimer()
+render_status_badge("RESEARCH_ONLY", "INVESTIGACIÓN · PAPER TRADING")
 render_d2_integrity_alerts(vm)
 
 col_pub, col_exp = st.columns(2)
@@ -74,61 +84,71 @@ estadísticos. Por eso se está observando con operaciones simuladas y sin
 dinero real.
 """
 )
-st.markdown(
-    """
-    <div class="d2-formula-card">
-        <div class="d2-formula-title">Fórmula simplificada</div>
-        <div class="d2-formula-line"><strong>D2</strong> =</div>
-        <div class="d2-formula-line">70% señal V14</div>
-        <div class="d2-formula-line">+ 30% calidad de tendencia</div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
 
 st.markdown('<div class="v14-section-title">Estado actual</div>', unsafe_allow_html=True)
-
-if vm["runtime_status"] == "WAITING_FOR_FIRST_FORWARD_SIGNAL":
-    st.markdown(
-        """
-        <div class="d2-waiting-card">
-            <div class="d2-waiting-title">Esperando la primera señal prospectiva</div>
-            <p>El seguimiento comenzó el 15/07/2026. La primera señal permitida se
-            calculará después del cierre semanal válido del 17/07/2026.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+runtime = d2.get("runtime_status") or vm.get("runtime_status")
+if runtime == "WAITING_FOR_FIRST_FORWARD_SIGNAL":
+    first = vm.get("first_permitted_signal") or "—"
+    render_execution_status(
+        "Esperando la primera señal prospectiva",
+        f"La primera señal permitida se calculará tras el cierre semanal válido ({first}).",
     )
-elif vm["runtime_status"] == "DATA_REVISION_DETECTED":
+elif runtime == "FORWARD_SIGNAL_RECORDED_PENDING_EXECUTION":
+    render_execution_status(
+        d2.get("runtime_status_label") or "Señal registrada · pendiente de apertura",
+        f"Última signal_date: {d2.get('signal_date') or vm.get('latest_signal_date') or '—'}",
+    )
+elif runtime == "DATA_REVISION_DETECTED":
     st.error("Seguimiento detenido por revisión de datos históricos.")
 
 status_cols = st.columns(4)
-status_cols[0].metric("Señales registradas", vm["completed_signals"])
-status_cols[1].metric("Ejecuciones completadas", vm["completed_executions"])
-status_cols[2].metric("Próximo checkpoint", f"{vm['next_checkpoint']} ejec.")
-status_cols[3].metric("Contratos verificados", "Sí" if vm["contracts_ok"] else "No")
+status_cols[0].metric("Señales registradas", d2.get("completed_signals", vm["completed_signals"]))
+status_cols[1].metric("Ejecuciones completadas", d2.get("completed_executions", vm["completed_executions"]))
+status_cols[2].metric("Próximo checkpoint", f"{d2.get('next_checkpoint', vm['next_checkpoint'])} ejec.")
+status_cols[3].metric("Runtime", d2.get("runtime_status_label") or runtime or "—")
 
-if vm["latest_signal_date"] and vm["completed_signals"] > 0:
-    st.markdown(f"**Última señal:** {vm['latest_signal_date']}")
+st.write(f"**Histórico:** {d2.get('historical_status') or vm.get('D2_historical_status') or 'D2_NOT_SELECTED'}")
+st.write(f"**Paper:** {d2.get('paper_status') or vm.get('D2_paper_status') or 'RESEARCH_SHADOW_NOT_SELECTED'}")
+st.caption("APPROVED_FOR_REAL_MONEY=False · D2 no es una mejora confirmada.")
 
-    st.markdown('<div class="v14-section-title">Comparación de carteras</div>', unsafe_allow_html=True)
-    diff = vm.get("portfolio_diff", {})
-    if diff.get("same_portfolio"):
-        st.info("Esta semana V14 y D2 proponen la misma cartera.")
-    else:
-        if diff.get("only_c0"):
-            st.write(f"Solo en V14: {', '.join(diff['only_c0'])}")
-        if diff.get("only_d2"):
-            st.write(f"Solo en D2: {', '.join(diff['only_d2'])}")
+if (d2.get("signal_date") or vm.get("latest_signal_date")) and int(d2.get("completed_signals", vm.get("completed_signals", 0)) or 0) > 0:
+    st.markdown(f"**Última señal:** {d2.get('signal_date') or vm.get('latest_signal_date')}")
 
-    col_c0, col_d2 = st.columns(2)
+    st.markdown('<div class="v14-section-title">Comparación C0/V14 vs D2</div>', unsafe_allow_html=True)
+    if d2.get("diff_summary"):
+        st.info(d2["diff_summary"])
+    render_model_comparison_table(
+        [
+            {
+                "ticker": r["ticker"],
+                "c0_weight": r.get("c0_weight", r.get("base_weight")),
+                "d2_weight": r.get("d2_weight", r.get("other_weight")),
+                "baseline_rank": r.get("baseline_rank"),
+                "trend_quality_rank": r.get("trend_quality_rank"),
+                "final_score": r.get("final_score"),
+                "situation": r.get("situation"),
+            }
+            for r in (d2.get("comparison") or [])
+        ],
+        [
+            ("ticker", "Ticker"),
+            ("c0_weight", "C0 weight"),
+            ("d2_weight", "D2 weight"),
+            ("baseline_rank", "Baseline rank"),
+            ("trend_quality_rank", "Trend quality rank"),
+            ("final_score", "Final score"),
+            ("situation", "Situación"),
+        ],
+    )
+
+    col_c0, col_d2p = st.columns(2)
     with col_c0:
-        st.markdown("#### V14 — Cartera oficial del modelo")
+        st.markdown("#### C0 / V14 baseline")
         if vm["latest_C0_positions"]:
             st.dataframe(_positions_table(vm["latest_C0_positions"]), use_container_width=True, hide_index=True)
         else:
             st.caption("Sin posiciones registradas.")
-    with col_d2:
+    with col_d2p:
         st.markdown("#### D2 — Cartera experimental")
         st.caption("Experimental — no es una recomendación pública")
         if vm["latest_D2_positions"]:
@@ -139,13 +159,10 @@ if vm["latest_signal_date"] and vm["completed_signals"] > 0:
     if vm["executions_preview"]:
         st.markdown('<div class="v14-section-title">Ejecuciones</div>', unsafe_allow_html=True)
         if vm["pending_execution_count"] > 0:
-            st.warning(
-                "Hay señales registradas esperando el precio de apertura de la siguiente sesión."
-            )
+            st.warning("Hay señales registradas esperando el precio de apertura de la siguiente sesión.")
         st.dataframe(pd.DataFrame(vm["executions_preview"]), use_container_width=True, hide_index=True)
 
 st.markdown('<div class="v14-section-title">Métricas prospectivas</div>', unsafe_allow_html=True)
-
 if vm["sample_status"] == "INSUFFICIENT_SAMPLE":
     st.markdown(
         """
@@ -159,34 +176,11 @@ if vm["sample_status"] == "INSUFFICIENT_SAMPLE":
 else:
     st.caption("Resultado provisional de paper trading")
 
-metric_cols = st.columns(3)
-if vm["C0_paper_return"] is not None:
-    metric_cols[0].metric("Rentabilidad acumulada V14", f"{vm['C0_paper_return']:.2f}%")
-if vm["D2_paper_return"] is not None:
-    metric_cols[1].metric("Rentabilidad acumulada D2", f"{vm['D2_paper_return']:.2f}%")
-if vm["D2_active_return"] is not None:
-    metric_cols[2].metric("Diferencia D2 vs V14", f"{vm['D2_active_return']:.2f}%")
-
-if vm["C0_max_drawdown"] is not None or vm["D2_max_drawdown"] is not None:
-    dd_cols = st.columns(3)
-    if vm["C0_max_drawdown"] is not None:
-        dd_cols[0].metric("Drawdown V14", f"{vm['C0_max_drawdown']:.2f}%")
-    if vm["D2_max_drawdown"] is not None:
-        dd_cols[1].metric("Drawdown D2", f"{vm['D2_max_drawdown']:.2f}%")
-    if vm["paper_costs"] is not None:
-        dd_cols[2].metric("Costes", f"{vm['paper_costs']:.2f}")
-
-if vm["completed_weeks"]:
-    st.metric("Semanas completadas", vm["completed_weeks"])
-
-if vm["sample_status"] == "AVAILABLE" and vm["information_ratio"] is not None:
-    st.metric("Information ratio (provisional)", vm["information_ratio"])
-
 st.markdown('<div class="v14-section-title">Entiende el experimento</div>', unsafe_allow_html=True)
 st.markdown(
     """
-- **Qué añade D2:** un 30% de calidad de tendencia (slope × R²) sobre el ranking V14.
-- **Por qué no fue seleccionado:** mejoró varias métricas pero falló G7 (IR) y G13 (PBO).
+- **Qué añade D2:** un 30% de calidad de tendencia sobre el ranking V14.
+- **Por qué no fue seleccionado:** mejoró varias métricas pero falló controles estadísticos clave.
 - **Qué se mide en forward paper:** cartera experimental vs V14, ejecuciones, costes y checkpoints 13/26/52.
 """
 )

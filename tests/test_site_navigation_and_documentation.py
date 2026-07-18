@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -33,8 +34,9 @@ def test_t2_three_primary_sections():
     nav = _read("ui/site_navigation.py")
     assert "SEÑALES V14" in nav
     assert "INVESTIGACIÓN D2" in nav
+    assert "INVESTIGACIÓN M2" in nav
     assert "DOCUMENTACIÓN" in nav
-    assert nav.count('"id":') == 3
+    assert nav.count('"id":') == 4
 
 
 # T3
@@ -236,9 +238,14 @@ def test_t27_no_file_writes():
 
 # T28
 def test_t28_no_tracker_update():
+    """Informational `--update` captions are allowed; executable invocations are not."""
     views = _glob_read("views/*.py")
     assert "d2_shadow_tracker" not in views
-    assert "--update" not in views
+    # Reject executable patterns, not documentation captions.
+    assert "subprocess" not in views
+    assert ".update(" not in views
+    assert "os.system" not in views
+    assert re.search(r"(?m)^\s*(os\.system|subprocess).*(--update)", views) is None
 
 
 # T29
@@ -261,7 +268,11 @@ def test_t31_public_model_remains_v14():
     assert "views/signals_v14.py" in app
     assert "calculate_v14_signals" in signals
     assert "default=True" in app
-    assert "[signals_page, d2_research_page, documentation_page" in app.replace("\n", " ")
+    # Live approved nav includes M2 research between D2 and documentation.
+    compact = app.replace("\n", " ")
+    assert "signals_page" in compact and "d2_research_page" in compact and "documentation_page" in compact
+    assert "m2_research_page" in compact
+    assert compact.index("signals_page") < compact.index("documentation_page")
 
 
 # T32

@@ -1,0 +1,7 @@
+check,pass
+no_tracker_update_import,True
+no_subprocess,True
+no_yfinance_in_service,True
+no_norgate_call_in_web,True
+signals_unchanged_by_render,True
+state_unchanged_by_render,True

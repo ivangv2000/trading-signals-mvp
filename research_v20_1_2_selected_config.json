@@ -1,0 +1,15 @@
+{
+  "M2_historical_status": "PROMISING_NOT_SELECTABLE_PRED5_AMBIGUOUS",
+  "PRED5_contract_status": "AMBIGUOUS_PREREGISTERED_DEFINITION",
+  "approved_for_real_money": false,
+  "current_public_model": "V14 R1 Return Engine",
+  "d2_tracker_changed": false,
+  "model_common_end_date": "2026-07-14",
+  "model_common_start_date": "2019-06-21",
+  "preregistered_hash": "cb3c8621e15ce48c450aac4a2b5dc6cb15270e9117ea4dd24ae46ebe81f0e75d",
+  "public_model_changed": false,
+  "selected_forward_paper_challenger": "NONE",
+  "status": "V20_1_2_CLEAN_REEVALUATION_VALIDATED",
+  "trial_count_input": 614,
+  "version": "v20_1_2"
+}

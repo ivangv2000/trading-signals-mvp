@@ -1,0 +1,32 @@
+{
+  "APPROVED_FOR_REAL_MONEY": false,
+  "batch_id": "S_20260717",
+  "d2_runtime_status": "FORWARD_SIGNAL_RECORDED_PENDING_EXECUTION",
+  "future_rows_used": 0,
+  "live_scoring_as_of": "2026-07-17",
+  "m2_target_weights": {
+    "LLY": 0.3,
+    "SHY": 0.1,
+    "UNH": 0.3,
+    "XLK": 0.3
+  },
+  "m5_target_weights": {
+    "AAPL": 0.3,
+    "LLY": 0.3,
+    "SHY": 0.1,
+    "UNH": 0.3
+  },
+  "model_fit_calls": 0,
+  "model_training_cutoff": "2026-07-14",
+  "model_version_id": "M2_20260702_prepaper",
+  "public_model": "V14 R1 Return Engine",
+  "signal_date": "2026-07-17",
+  "status": "FIRST_FORWARD_M2_M5_SIGNAL_BATCH_RECOVERED",
+  "trial_count": 619,
+  "validators": {
+    "D2": "24/24",
+    "M2": "48/48",
+    "M5": "50/50"
+  },
+  "version": "v27_1_5"
+}

@@ -171,6 +171,35 @@ else:
         )
 
 st.markdown("---")
+st.markdown('<div class="v14-section-title">Laboratorio de investigación</div>', unsafe_allow_html=True)
+st.markdown(
+    '<p class="v14-hero-sub">Comparación read-only frente a experimentos en paper trading. '
+    "No sustituyen a la señal pública V14.</p>",
+    unsafe_allow_html=True,
+)
+
+from services.research_status_service import load_latest_research_comparison
+from ui.research_status_components import (
+    render_research_disclaimer,
+    render_strategy_signal_card,
+)
+
+render_research_disclaimer()
+_cmp = load_latest_research_comparison()
+if _cmp.get("ok"):
+    _lab_cols = st.columns(4)
+    for _col, _card in zip(_lab_cols, _cmp.get("cards") or []):
+        with _col:
+            render_strategy_signal_card(_card)
+    if _cmp.get("plain_language"):
+        st.markdown('<div class="v14-section-title">Qué cambió esta semana</div>', unsafe_allow_html=True)
+        for _line in _cmp["plain_language"]:
+            st.markdown(f"- {_line}")
+    st.caption(f"Última fecha de señal en trackers: {_cmp.get('latest_signal_date') or '—'}")
+else:
+    st.info("El laboratorio de investigación no tiene datos disponibles ahora mismo.")
+
+st.markdown("---")
 st.markdown('<div class="v14-section-title">Entiende cómo se genera esta señal</div>', unsafe_allow_html=True)
 st.markdown(
     """
@@ -180,7 +209,7 @@ st.markdown(
         <div class="doc-mini-card"><div class="doc-mini-card-title">Ranking</div>
         <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Comparación transversal semanal</div></div>
         <div class="doc-mini-card"><div class="doc-mini-card-title">Construcción de cartera</div>
-        <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Top 3, vol target y SHY</div></div>
+        <div style="font-size:0.8rem;color:#94a3b8;margin-top:0.35rem;">Top 3, vol target y tramo defensivo</div></div>
     </div>
     """,
     unsafe_allow_html=True,

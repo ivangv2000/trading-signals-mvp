@@ -22,6 +22,14 @@ NAV_ITEMS = [
         "css_class": "site-nav-card site-nav-d2",
     },
     {
+        "id": "m2_research_view",
+        "page": "views/m2_research_view.py",
+        "icon": "🧪",
+        "title": "INVESTIGACIÓN M2",
+        "subtitle": "M2 y combinación adaptativa M5",
+        "css_class": "site-nav-card site-nav-d2",
+    },
+    {
         "id": "documentation_hub",
         "page": "views/documentation_hub.py",
         "icon": "📚",
@@ -33,9 +41,9 @@ NAV_ITEMS = [
 
 
 def render_primary_navigation(active_page: str) -> None:
-    """Renderiza tres tarjetas de navegación horizontales."""
+    """Renderiza tarjetas principales de navegación horizontales."""
     st.markdown('<div class="site-nav-shell">', unsafe_allow_html=True)
-    cols = st.columns(3, gap="small")
+    cols = st.columns(len(NAV_ITEMS), gap="small")
     for col, item in zip(cols, NAV_ITEMS):
         active = item["id"] == active_page
         active_class = " site-nav-active" if active else ""

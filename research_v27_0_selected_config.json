@@ -1,0 +1,62 @@
+{
+  "version": "v27_0",
+  "status": "TRIAL_INTEGRATION_OK_FULL_HISTORY_UNAVAILABLE",
+  "trial_count": 619,
+  "models_trained": 0,
+  "backtests_executed": 0,
+  "read_only_mode": true,
+  "norgatedata_import": "PASS",
+  "ndu_database_connection": "PASS",
+  "daily_prices": true,
+  "delisted_securities": true,
+  "historical_index_constituents": true,
+  "sp500_point_in_time_membership": true,
+  "sp500_identifier": "S&P 500",
+  "first_available_date": "2024-07-17",
+  "last_available_date": "2026-07-16",
+  "suitable_for_integration_testing": true,
+  "suitable_for_1998_2026_backtest": false,
+  "survivorship_bias_free_capability": true,
+  "point_in_time_membership_capability": true,
+  "delisted_security_capability": true,
+  "approved_for_real_money": false,
+  "trackers_unchanged": true,
+  "exports": [
+    "research_v27_0_summary.csv",
+    "research_v27_0_environment.csv",
+    "research_v27_0_api_capabilities.csv",
+    "research_v27_0_index_membership_sample.csv",
+    "research_v27_0_price_sample_audit.csv",
+    "research_v27_0_validation_tests.csv",
+    "research_v27_0_selected_config.json"
+  ],
+  "zip": "V27_0_NORGATE_READINESS_AUDIT.zip",
+  "local_install_instructions": [
+    "Install Norgate Data Updater (NDU) from https://norgatedata.com (Windows only).",
+    "Start NDU and confirm the local database is available.",
+    "Install the official package only: pip install norgatedata",
+    "Do not install similarly named packages.",
+    "Python 64-bit is recommended to match a 64-bit NDU install.",
+    "Writable folder ~/.norgatedata (or NORGATEDATA_ROOT) is required by the package."
+  ],
+  "sp500_resolution": {
+    "resolved_identifier": "S&P 500",
+    "tried": [
+      "S&P 500",
+      "$SPX"
+    ],
+    "resolution_detail": {
+      "S&P 500": {
+        "ok": true,
+        "error": null,
+        "type": "DataFrame"
+      },
+      "$SPX": {
+        "ok": true,
+        "error": null,
+        "type": "DataFrame"
+      }
+    },
+    "index_membership_api": "index_constituent_timeseries"
+  }
+}

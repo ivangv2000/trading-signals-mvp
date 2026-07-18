@@ -48,11 +48,13 @@ def render_paper_banner() -> None:
     st.markdown(
         """
         <div class="v14-paper-banner">
-            PAPER TRADING · NO EJECUTA ÓRDENES · APPROVED_FOR_REAL_MONEY=False
+            Simulación en paper trading · no ejecuta órdenes · no aprobado para dinero real
         </div>
         """,
         unsafe_allow_html=True,
     )
+    with st.expander("Detalle técnico de aprobación"):
+        st.caption("APPROVED_FOR_REAL_MONEY=False")
 
 
 def render_status_header(summary: dict | None) -> None:

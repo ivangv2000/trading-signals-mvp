@@ -1,0 +1,11 @@
+{
+  "historical_signal_date_checked": "2026-07-14",
+  "max_final_score_difference": 0.0,
+  "max_prediction_rank_difference": 0.0,
+  "max_probability_difference": NaN,
+  "max_target_weight_difference": 0.0,
+  "prediction_rows_compared": 31,
+  "reconstruction_status": "PASS",
+  "same_selected_tickers": true,
+  "training_date_used": "2026-07-02"
+}

@@ -33,15 +33,23 @@ def test_t2_state_json_read_only():
 
 # T3
 def test_t3_empty_signal_csv_supported(tmp_path, monkeypatch):
+    import json
     import services.d2_shadow_status_service as svc
 
-    monkeypatch.setattr(svc, "STATE_PATH", ROOT / "paper_research/state/v18_3_5_d2_shadow_state.json")
+    live_state = json.loads((ROOT / "paper_research/state/v18_3_5_d2_shadow_state.json").read_text(encoding="utf-8"))
+    live_state["completed_signals"] = 0
+    live_state["recorded_signal_dates"] = []
+    live_state["last_signal_date"] = None
+    state_path = tmp_path / "state.json"
+    state_path.write_text(json.dumps(live_state), encoding="utf-8")
+    monkeypatch.setattr(svc, "STATE_PATH", state_path)
     monkeypatch.setattr(svc, "SIGNALS_PATH", tmp_path / "empty_signals.csv")
     monkeypatch.setattr(svc, "EXECUTIONS_PATH", tmp_path / "empty_exec.csv")
     monkeypatch.setattr(svc, "EQUITY_PATH", tmp_path / "empty_eq.csv")
     pd.DataFrame(columns=["signal_date", "strategy", "ticker"]).to_csv(tmp_path / "empty_signals.csv", index=False)
     vm = svc.build_d2_shadow_view_model()
     assert vm["completed_signals"] == 0
+    assert vm["runtime_status"] == "WAITING_FOR_FIRST_FORWARD_SIGNAL"
 
 
 # T4
@@ -66,9 +74,15 @@ def test_t6_waiting_status_rendered():
 
     vm = build_d2_shadow_view_model()
     view = _read("views/d2_shadow_research.py")
-    assert vm["runtime_status"] == "WAITING_FOR_FIRST_FORWARD_SIGNAL"
+    assert vm["runtime_status"] in (
+        "WAITING_FOR_FIRST_FORWARD_SIGNAL",
+        "FORWARD_SIGNAL_RECORDED_PENDING_EXECUTION",
+        "FORWARD_TRACKING_ACTIVE",
+    )
     assert "WAITING_FOR_FIRST_FORWARD_SIGNAL" in view
     assert "Esperando la primera señal prospectiva" in view
+    if int(vm.get("completed_signals", 0) or 0) > 0 and int(vm.get("completed_executions", 0) or 0) == 0:
+        assert vm["runtime_status"] == "FORWARD_SIGNAL_RECORDED_PENDING_EXECUTION"
 
 
 # T7

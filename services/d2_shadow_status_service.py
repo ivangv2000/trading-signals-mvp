@@ -87,10 +87,12 @@ def _runtime_status(state: dict) -> str:
     if state.get("data_revision_detected"):
         return "DATA_REVISION_DETECTED"
     completed = int(state.get("completed_signals", 0) or 0)
-    first = state.get("first_permitted_signal_date")
-    if completed == 0 and first:
+    completed_exec = int(state.get("completed_executions", 0) or 0)
+    if completed == 0:
         return "WAITING_FOR_FIRST_FORWARD_SIGNAL"
-    return state.get("tracker_status", "D2_SHADOW_TRACKER_INITIALIZED")
+    if completed_exec == 0:
+        return "FORWARD_SIGNAL_RECORDED_PENDING_EXECUTION"
+    return "FORWARD_TRACKING_ACTIVE"
 
 
 def _latest_positions(signals: pd.DataFrame, strategy: str, executions: pd.DataFrame) -> list[dict]:

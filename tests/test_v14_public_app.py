@@ -39,26 +39,32 @@ def test_public_t1_default_page_is_v14_signals():
     app = _read("app.py")
     assert "default=True" in app
     assert "views/signals_v14.py" in app
-    assert app.index("signals_page") < app.index("explanation_page")
+    assert app.index("signals_page") < app.index("documentation_page")
 
 
-def test_public_t2_only_two_primary_nav_items():
+def test_public_t2_three_primary_nav_sections():
     app = _read("app.py")
     assert 'title="Señales V14"' in app
-    assert 'title="Cómo funciona"' in app
-    assert 'visibility="hidden"' in app
-    assert app.count("st.Page(") == 3
+    assert 'title="Documentación"' in app
+    assert 'title="Investigación D2"' in app
+    assert 'title="Investigación M2"' in app
+    assert 'title="Cómo funciona"' not in app
+    assert 'position="hidden"' in app
+    # 4 visible primary pages + 2 hidden (legacy how + advanced)
+    assert app.count("st.Page(") == 6
 
 
 def test_public_t3_signals_visible_before_research():
     app = _read("app.py")
     nav_block = app[app.index("st.navigation") : app.index("navigation.run()")]
     assert nav_block.index("signals_page") < nav_block.index("advanced_page")
+    assert nav_block.index("signals_page") < nav_block.index("d2_research_page")
 
 
 def test_public_t4_v14_is_only_active_signal_model():
     signals = _read("views/signals_v14.py")
     assert "V14" in signals
+    assert "render_primary_navigation" in signals
     assert "V6" not in signals
     assert "V17" not in signals
     assert "Swing" not in signals
@@ -94,34 +100,34 @@ def test_public_t8_capital_100_allocation():
     assert summary["capital_total"] == 100.0
 
 
-def test_public_t9_explanation_page_complete():
-    how = _read("views/how_v14_works.py")
-    content = _read("content/v14_explanation.py")
+def test_public_t9_documentation_hub_present():
+    doc = _read("views/documentation_hub.py")
+    general = _read("content/general_documentation.py")
     for token in (
-        "Qué hace V14",
-        "A_tsmom_63",
-        "Cómo crea la cartera",
-        "Ejemplo sencillo",
-        "Cómo se probó",
-        "Limitaciones",
+        "Visión general",
+        "V14 R1 Return Engine",
+        "D2 Trend Quality",
+        "Backtesting",
         "Glosario",
-        "Ver evolución completa del proyecto",
+        "Limitaciones",
     ):
-        assert token in how or token in content
+        assert token in doc or token in general
 
 
 def test_public_t10_advanced_research_hidden():
     app = _read("app.py")
     how = _read("views/how_v14_works.py")
     assert 'visibility="hidden"' in app
-    assert "st.page_link" in how
+    assert "documentation_hub.py" in how
 
 
-def test_public_t11_no_broker_execution():
-    for path in ("app.py", "views/signals_v14.py", "services/v14_signal_service.py"):
+def test_public_t11_paper_trading_public_text():
+    components = _read("ui/v14_components.py")
+    for path in ("views/signals_v14.py", "services/v14_signal_service.py", "ui/v14_styles.py"):
         text = _read(path).lower()
         assert "broker" not in text
         assert "no ejecuta" in text or "paper trading" in text
+    assert "no aprobado para dinero real" in components
 
 
 def test_public_t12_approved_for_real_money_false():

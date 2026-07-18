@@ -1,0 +1,64 @@
+{
+  "classes": [
+    0,
+    1
+  ],
+  "coefficient_hash": "f31aaed6b164922081e87164b0b18fa6c5cbc037fc7842c44827224f47ba6eef",
+  "coefficients": [
+    [
+      0.11276765287450788,
+      -0.000877586512238914,
+      0.3125772184075797,
+      -0.006521378664622036,
+      0.15715401930617065,
+      0.006170914972739356,
+      0.6522427270687526,
+      0.5186730840684868,
+      -0.09973532216671828,
+      -0.4482700169952159
+    ]
+  ],
+  "created_at_utc": "2026-07-15T21:58:28.130247+00:00",
+  "feature_contract_hash": "9d68ef18de7c1a29203641ed02acc7c315efd323648d654506c2064082ecc0cb",
+  "feature_names_ordered": [
+    "F1_RETURN_5_rank",
+    "F2_RETURN_21_rank",
+    "F3_RETURN_63_rank",
+    "F4_MOMENTUM_6_MINUS_1_rank",
+    "F5_MOMENTUM_12_MINUS_1_rank",
+    "F6_TREND_QUALITY_126_rank",
+    "F7_REALIZED_VOLATILITY_21_rank",
+    "F8_DOWNSIDE_VOLATILITY_63_rank",
+    "F9_MAX_DRAWDOWN_63_rank",
+    "F10_DISTANCE_TO_HIGH_252_rank"
+  ],
+  "first_training_signal_date": "2016-03-18",
+  "intercept": [
+    -1.6715030154604
+  ],
+  "latest_training_signal_date": "2026-06-18",
+  "latest_training_target_exit_date": "2026-06-29",
+  "model_name": "M2_LOGISTIC_TOP_QUARTILE",
+  "model_state_hash": "485fddd94edb2c18d67e9e5be49dcdb732fb0857c58ae3cdaeed96e54b0f88c0",
+  "model_version_id": "M2_20260702_prepaper",
+  "negative_class_count": 10421,
+  "numpy_version": "2.2.6",
+  "pandas_version": "2.3.3",
+  "parameters": {
+    "C": 0.1,
+    "class_weight": null,
+    "fit_intercept": true,
+    "max_iter": 2000,
+    "penalty": "l2",
+    "random_state": 20260715,
+    "solver": "lbfgs",
+    "tol": 0.0001
+  },
+  "positive_class_count": 3828,
+  "scikit_learn_version": "1.7.2",
+  "state_origin": "RECONSTRUCTED_LAST_PRE_PAPER_MONTHLY_RETRAIN",
+  "training_contract_hash": "8511fe1937eee67ed3c53c89b13c86cac4e0d5ef08614fb736ce7c43c8e6fcc8",
+  "training_date": "2026-07-02",
+  "training_row_count": 14249,
+  "training_signal_count": 431
+}

@@ -1,0 +1,2 @@
+model_version_id,training_date,first_training_signal_date,latest_training_signal_date,latest_training_target_exit_date,training_signal_count,training_row_count,positive_class_count,negative_class_count,fit_status,recorded_at_utc
+M2_20260702_prepaper,2026-07-02,2016-03-18,2026-06-18,2026-06-29,431,14249,3828,10421,FIT_OK,2026-07-15T21:58:28.137074+00:00

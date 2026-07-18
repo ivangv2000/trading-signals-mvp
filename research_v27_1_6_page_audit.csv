@@ -1,0 +1,6 @@
+page,updated,default,title,dynamic_comparison,project_status,note
+signals_v14,True,True,,,,
+m2_research_view,True,,Investigación M2 y M5,,,
+d2_shadow_research,True,,,True,,
+documentation_hub,True,,,,True,
+app.py,False,,,,,unchanged navigation ids

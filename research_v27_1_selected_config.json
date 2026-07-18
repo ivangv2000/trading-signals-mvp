@@ -1,0 +1,31 @@
+{
+  "version": "v27_1",
+  "status": "PIT_FULL_SP500_READY_NESTED_SIZING_UNAVAILABLE",
+  "trial_count": 619,
+  "norgatedata_version": "1.0.77",
+  "sp500_identifier": "S&P 500",
+  "membership_api": "index_constituent_timeseries",
+  "price_adjustment_mode": "TOTALRETURN",
+  "nested_universe_status": "NESTED_POINT_IN_TIME_SIZING_UNAVAILABLE",
+  "full_history_purchase_recommended": true,
+  "nested_universe_purchase_value": "MEDIUM",
+  "m2_full_evaluation_possible_in_trial": false,
+  "approved_for_real_money": false,
+  "models_trained": 0,
+  "backtests_executed": 0,
+  "trackers_unchanged": true,
+  "exports": [
+    "research_v27_1_summary.csv",
+    "research_v27_1_environment_and_contract.csv",
+    "research_v27_1_weekly_universe_audit.csv",
+    "research_v27_1_membership_event_audit.csv",
+    "research_v27_1_identifier_audit.csv",
+    "research_v27_1_price_coverage_audit.csv",
+    "research_v27_1_nested_universe_capability.csv",
+    "research_v27_1_v14_signal_smoke_audit.csv",
+    "research_v27_1_validation_tests.csv",
+    "research_v27_1_selected_config.json"
+  ],
+  "zip": "V27_1_PIT_PIPELINE_DRY_RUN.zip",
+  "data_dir": "research_data/v27_1_pit_pipeline"
+}

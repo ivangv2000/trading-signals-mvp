@@ -1,0 +1,43 @@
+{
+  "approved_for_real_money": false,
+  "conviction_seed_first_date": "2024-04-26",
+  "conviction_seed_hash": "ea06e357681fd7ca725a1d6ac9aa4f3161a0b4a8fb7d0398b10f17a6544353d3",
+  "conviction_seed_last_date": "2026-07-14",
+  "conviction_seed_rows": 104,
+  "current_public_model": "V14 R1 Return Engine",
+  "d2_hashes_at_init": {
+    "paper_research/d2_shadow_tracker.py": "9a7165d48c7e4d470ce892ca391f460b5b64f0a813ea932503d485349f12263f",
+    "paper_research/data/v18_3_5_daily_equity.csv": "55016fb250af5f0f95ebb78941e81fa4b2fcf4dc22f30feecf44ad1c328ec828",
+    "paper_research/data/v18_3_5_executions.csv": "c640105fdb1a07e799f76bbfd6c371fc8def8ef81b92fbb3da47988cf1dbf527",
+    "paper_research/data/v18_3_5_signal_snapshots.csv": "b3908a20e7e11a42d378fa2ba589064d68041f6ac28cf612665f0caa2880984d",
+    "paper_research/state/v18_3_5_d2_shadow_state.json": "376de3d6002ca8c83010e2ee051675a80730581183a679349fdc55a3279b908d"
+  },
+  "executions_count": 0,
+  "first_permitted_signal_date": "2026-07-17",
+  "historical_cutoff": "2026-07-14",
+  "historical_predictive_champion": "M2_LOGISTIC_TOP_QUARTILE",
+  "historical_selection_status": "NO_M5_CHALLENGER",
+  "initialized_at": "2026-07-17T08:49:08.885168+00:00",
+  "latest_signal_date": "2026-07-17",
+  "m2_hashes_at_init": {
+    "paper_research/data/v20_2_m2_daily_equity.csv": "91beeb7148b7ea14d5cc32b0b88aaa2ce7e02927c11a206d6273b162492df331",
+    "paper_research/data/v20_2_m2_executions.csv": "375bfce9b3bb169feb6b5435bb2fd516cfcce80755a1ddec2d280ba7eae8d800",
+    "paper_research/data/v20_2_m2_signal_snapshots.csv": "cf30e12c839f63ef5d738d35a21046da145186fd23f5d14c315fe3eedb50b0a1",
+    "paper_research/data/v20_2_m2_training_events.csv": "309aed18cb65fdc80356edbbec3f623b92cdea27e0aa9858d6fbe8413390cf7b",
+    "paper_research/m2_shadow_tracker.py": "3a4474d0a707f9d45e0f152a2e390f51c639edc9af3dea17520d296451e3770d",
+    "paper_research/state/v20_2_m2_model_state.json": "a0e458985c37195f6eb7bf28464cf7ea6dd46eca8aa345e7682c06d06795fce6",
+    "paper_research/state/v20_2_m2_shadow_state.json": "dfcc931c7aac79e90d8b771e1b41ea124231ea01d0b96142fbb7a773f3c987f6"
+  },
+  "recorded_signal_dates": [
+    "2026-07-17"
+  ],
+  "research_classification": "RESEARCH_ONLY_REJECTED_HISTORICAL_CHALLENGER",
+  "resolved_weeks": 0,
+  "runtime_status": "UP_TO_DATE",
+  "selected_forward_paper_challenger": "NONE",
+  "signals_count": 1,
+  "status": "M5_RESEARCH_SHADOW_INITIALIZED",
+  "tracker_id": "V25_2_M5_RESEARCH_SHADOW",
+  "trial_count": 619,
+  "version": "v25_2"
+}

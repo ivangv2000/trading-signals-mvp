@@ -1,0 +1,95 @@
+{
+  "AUC": 0.6227708111583864,
+  "D2_tracker_unchanged": true,
+  "M2_historical_status": "PROMISING_NOT_SELECTABLE_PRED5_AMBIGUOUS",
+  "M2_tracker_unchanged": true,
+  "M2_unchanged": true,
+  "approved_for_real_money": false,
+  "best_regime": "NARROW_MARKET",
+  "brier_skill": 0.035017065857984586,
+  "calibration_status": "MODERATE",
+  "excess_2019_2021": 8.492826079920455,
+  "excess_2022_2023": 9.607450705026244,
+  "excess_2024_2026": 8.643024872791099,
+  "excessive_concentration": false,
+  "exports": [
+    "research_v20_3_summary.csv",
+    "research_v20_3_coefficient_stability.csv",
+    "research_v20_3_period_and_regime_diagnostics.csv",
+    "research_v20_3_concentration.csv",
+    "research_v20_3_probability_and_ranking.csv",
+    "research_v20_3_training_age_and_errors.csv",
+    "research_v20_3_selected_diagnostic.json"
+  ],
+  "joint_probability_status": "CALIBRATION_MODERATE_RANKING_MODERATE",
+  "material_regime_dependence": true,
+  "max_feature_rank_abs_corr": 1.0,
+  "mean_feature_rank_abs_corr": 0.2906173564080374,
+  "no_new_model": true,
+  "no_parameter_search": true,
+  "no_trial_count_increase": true,
+  "no_variants_executed": true,
+  "old_data_dominance": true,
+  "primary_improvement_recommendation": "MARKET_REGIME_FEATURES",
+  "production_bundle_hash": "9d137c8f317bbab03b04a14caf677af551e6d1492d44ea78948190157f1c316a",
+  "public_model": "V14 R1 Return Engine",
+  "ranking_quality": "MODERATE",
+  "recommendation_reasons": {
+    "MARKET_REGIME_FEATURES": [
+      "IC improvement spread 0.2314 across regimes"
+    ],
+    "RECENCY_WEIGHTING": [
+      "significant coefficient drift with some recently stable signs"
+    ],
+    "ROLLING_TRAINING_WINDOW": [
+      "rows older than 5y reach 56.0%"
+    ]
+  },
+  "recommendation_scores": {
+    "MARKET_REGIME_FEATURES": 2.5,
+    "NONE": 0.0,
+    "PROBABILITY_CALIBRATION": 0.0,
+    "RECENCY_WEIGHTING": 2.0,
+    "ROLLING_TRAINING_WINDOW": 1.5,
+    "SECTOR_DIVERSIFICATION_OVERLAY": 0.0,
+    "TARGET_REDESIGN": 0.0
+  },
+  "recon": {
+    "daily_return_rows_compared": 2898,
+    "daily_returns_reconcile": true,
+    "different_target_rows": 0,
+    "max_daily_return_difference": 0.0,
+    "max_prediction_difference": 0.0,
+    "max_score_difference": 0.0,
+    "max_weight_difference": 0.0,
+    "prediction_rows_compared": 10529,
+    "predictions_reconcile": true,
+    "reconcile_status": "PASS",
+    "signal_drift": false,
+    "target_rows_compared": 370,
+    "target_weights_reconcile": true,
+    "v212_cagr_reconcile": true
+  },
+  "reconcile_status": "PASS",
+  "rows_older_than_five_years_pct": 56.02498420941821,
+  "secondary_recommendation": "RECENCY_WEIGHTING",
+  "sector_concentration": 0.20508119964226018,
+  "sector_status": "OK",
+  "stable_features": "F7_REALIZED_VOLATILITY_21,F8_DOWNSIDE_VOLATILITY_63,F10_DISTANCE_TO_HIGH_252,F3_RETURN_63,F5_MOMENTUM_12_MINUS_1,F6_TREND_QUALITY_126,F4_MOMENTUM_6_MINUS_1,F2_RETURN_21",
+  "status": "M2_IMPROVEMENT_DIAGNOSTIC_COMPLETE",
+  "strongest_features": "F7_REALIZED_VOLATILITY_21,F8_DOWNSIDE_VOLATILITY_63,F10_DISTANCE_TO_HIGH_252",
+  "ticker_concentration": 0.057617415397648246,
+  "tracker_hashes": {
+    "d2_state_unchanged": true,
+    "d2_tracker_py_unchanged": true,
+    "m2_state_unchanged": true,
+    "m2_tracker_py_unchanged": true
+  },
+  "trial_count": 614,
+  "trial_count_unchanged": 614,
+  "unstable_features": "",
+  "v20_preregistered_hash": "cb3c8621e15ce48c450aac4a2b5dc6cb15270e9117ea4dd24ae46ebe81f0e75d",
+  "version": "v20_3",
+  "weakest_regime": "HIGH_VOLATILITY",
+  "zip": "V20_3_M2_IMPROVEMENT_DIAGNOSTIC.zip"
+}

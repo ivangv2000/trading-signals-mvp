@@ -1,0 +1,32 @@
+{
+  "approved_for_real_money": false,
+  "exports": [
+    "research_v27_1_6_summary.csv",
+    "research_v27_1_6_page_audit.csv",
+    "research_v27_1_6_data_source_audit.csv",
+    "research_v27_1_6_read_only_audit.csv",
+    "research_v27_1_6_validation_tests.csv",
+    "research_v27_1_6_selected_config.json"
+  ],
+  "latest_signal_date": "2026-07-17",
+  "pages": {
+    "d2_research_updated": true,
+    "documentation_updated": true,
+    "m2_m5_research_updated": true,
+    "v14_public_page_updated": true
+  },
+  "public_model": "V14 R1 Return Engine",
+  "safety": {
+    "production_model_changed": false,
+    "signals_changed": false,
+    "state_files_changed": false,
+    "trackers_called_by_web": false
+  },
+  "status": "WEB_RESEARCH_STATUS_UPDATED",
+  "suite_failed": 0,
+  "suite_passed": 1928,
+  "suite_tests": 1928,
+  "trial_count": 619,
+  "version": "v27_1_6",
+  "zip": "V27_1_6_WEB_RESEARCH_STATUS_UPDATE.zip"
+}
